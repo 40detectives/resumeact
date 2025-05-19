@@ -1,3 +1,6 @@
+# do not commit data folder with resume data
+src/data/*
+
 # Logs
 logs
 *.log
