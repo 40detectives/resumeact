@@ -27,45 +27,132 @@
 
 body {
   margin: 0;
+  background-color: #777;
+}
+
+.main-viewport {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  flex-flow: row nowrap;
+  max-height: 100svh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.aside-editor {
+  flex: 0 1 min(30%, 400px);
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.preview-frame {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  overflow: scroll;
+  width: 100%;
+  border: 3px solid cyan;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.scaled-size-holder {
+  width: var(--scaled-width);
+  height: var(--scaled-height);
+}
+
+.paged-view {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: min(6vw, 60px);
+  width: fit-content;
+  height: fit-content;
+  transform: scale(var(--page-scale));
+  /* transform-origin: top center; */
+  transform-origin: top left;
+}
+
+.display-page {
+  flex: 0 0 auto;
+  width: var(--a4-width);
+  height: var(--a4-height);
+  aspect-ratio: 1 / var(--a4-ratio);
+  padding: 15mm;
+  border: 1px solid #888;
+  background-color: #fff;
+  box-shadow: 8px 8px 6px 0 rgb(0 0 0 / 35%);
+}
+
+.bolder-react-icon {
+  path {
+    stroke-width: 2rem;
   }
-  a:hover {
-    color: #747bff;
+}
+
+@media only screen and (width <= 500px) {
+  .main-viewport {
+    flex-flow: column nowrap;
+    height: 100svh;
   }
-  button {
-    background-color: #f9f9f9;
+
+  .aside-editor {
+    flex: 1 1 auto;
+    order: 1;
+  }
+
+  .preview-frame {
+    flex: 0 0 auto;
+    order: 0;
+    width: auto;
+  }
+
+  .scaled-size-holder {
+    width: var(--scaled-height);
+    margin: auto;
+  }
+
+  .paged-view {
+    flex-flow: row nowrap;
+  }
+}
+
+@media print {
+  @page {
+    margin: 0;
+    /* size: A4 portrait; */
+    size: auto; /* bc: chrome PDF preview button ignores A4 and defaults to US letter */
+  }
+
+  body {
+    /* width: 210mm; /* ---> seems to fix safari printing */
+    margin: 0;
+    padding: 0;
+  }
+
+  .aside-editor {
+    display: none;
+  }
+
+  .preview-frame {
+    /* display: contents; */
+    overflow: initial;
+    width: initial;
+    border: none;
+  }
+
+  .scaled-size-holder {
+    --scaled-height: auto;
+    --scaled-width: auto;
+  }
+
+  .paged-view {
+    --page-scale: 1;
+
+    gap: 0;
+    transform: none;
+  }
+
+  .display-page {
+    /* width: 210mm
+    height: 297mm  */
+    margin: 0;
+    padding: 15mm;
+    border: none;
+    border: 3px solid red;
+    box-shadow: none;
+    page-break-after: always;
   }
 }
