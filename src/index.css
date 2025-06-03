@@ -38,6 +38,7 @@ body {
 
 .aside-editor {
   flex: 0 1 min(30%, 400px);
+  overflow: auto;
 }
 
 .preview-frame {
@@ -89,12 +90,12 @@ body {
   }
 
   .aside-editor {
-    flex: 1 1 auto;
+    flex: 1 1 50%;
     order: 1;
   }
 
   .preview-frame {
-    flex: 0 0 auto;
+    flex: 1 1 50%;
     order: 0;
     width: auto;
   }
