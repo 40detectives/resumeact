@@ -30,23 +30,38 @@ body {
   background-color: #777;
 }
 
+.bolder-react-icon {
+  path {
+    stroke-width: 2rem;
+  }
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  margin-block: auto;
+}
+
 .main-viewport {
   display: flex;
   flex-flow: row nowrap;
-  max-height: 100svh;
+  height: 100svh;
 }
 
 .aside-editor {
-  flex: 0 1 min(30%, 400px);
+  flex-grow: 1;
   overflow: auto;
+  min-width: max(min(30%, 450px), 300px);
+  max-width: 33%;
+  resize: horizontal; /* if I set flex-basis, it will prevent resize from working */
 }
 
 .preview-frame {
   display: flex;
-  flex-flow: column nowrap;
   align-items: center;
-  overflow: scroll;
-  width: 100%;
+  overflow: auto;
   border: 3px solid cyan;
 }
 
@@ -57,7 +72,7 @@ body {
 
 .paged-view {
   display: flex;
-  flex-flow: column nowrap;
+  /* flex-flow: column nowrap; */
   gap: min(6vw, 60px);
   width: fit-content;
   height: fit-content;
@@ -67,7 +82,6 @@ body {
 }
 
 .display-page {
-  flex: 0 0 auto;
   width: var(--a4-width);
   height: var(--a4-height);
   aspect-ratio: 1 / var(--a4-ratio);
@@ -77,36 +91,48 @@ body {
   box-shadow: 8px 8px 6px 0 rgb(0 0 0 / 35%);
 }
 
-.bolder-react-icon {
-  path {
-    stroke-width: 2rem;
-  }
+.vertical-scroll {
+  flex: 2 1 70%;
+  flex-flow: column nowrap;
 }
 
-@media only screen and (width <= 500px) {
+.vertical-scroll > .scaled-size-holder {
+  margin-block: min(3vw, 30px);
+}
+
+.vertical-scroll .paged-view {
+  flex-flow: column nowrap;
+}
+
+.horizontal-scroll {
+  flex-flow: row nowrap;
+  justify-content: start;
+}
+
+.horizontal-scroll > .scaled-size-holder {
+  margin-inline: 3vw;
+}
+
+.horizontal-scroll > .paged-view {
+  flex-flow: row nowrap;
+}
+
+@media only screen and (width <= 600px) {
   .main-viewport {
     flex-flow: column nowrap;
-    height: 100svh;
   }
 
   .aside-editor {
     flex: 1 1 50%;
     order: 1;
+    min-width: fit-content;
+    max-width: min-content;
+    resize: none;
   }
 
   .preview-frame {
     flex: 1 1 50%;
     order: 0;
-    width: auto;
-  }
-
-  .scaled-size-holder {
-    width: var(--scaled-height);
-    margin: auto;
-  }
-
-  .paged-view {
-    flex-flow: row nowrap;
   }
 }
 

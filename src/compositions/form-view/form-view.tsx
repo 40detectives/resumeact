@@ -1,27 +1,65 @@
 import { useViewContext } from "@/contexts/viewport-context";
 import styles from "./form-view.module.css";
 import type { ChangeEvent } from "react";
+import { CgScrollV, CgScrollH } from "react-icons/cg";
 
 interface Props {}
 
 export const FormView: React.FC<Props> = () => {
-  const { minScale, scale, setScale, maxScale } = useViewContext();
+  const { minScale, scale, setScale, maxScale, scrollMode, setScrollMode } =
+    useViewContext();
 
-  const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleRangeOnChange = (event: ChangeEvent<HTMLInputElement>) => {
     setScale(parseFloat(event.target.value));
+  };
+
+  const handleScrollModeOnClick = () => {
+    const newScrollMode = scrollMode === "vertical" ? "horizontal" : "vertical";
+    setScrollMode(newScrollMode);
   };
 
   return (
     <aside className={`aside-editor ${styles["aside-ui"]}`}>
-      <input
-        type="range"
-        step="0.01"
-        min={minScale}
-        max={maxScale}
-        value={scale}
-        onChange={handleOnChange}
-      />
-      <p>Scale: {scale}</p>
+      <div className="center">
+        Scroll mode is {scrollMode}
+        <button onClick={handleScrollModeOnClick}>
+          {scrollMode === "vertical" ? (
+            <CgScrollH size={35} />
+          ) : (
+            <CgScrollV size={35} />
+          )}
+        </button>
+      </div>
+      <p>
+        <label htmlFor="scale-range">Scale: </label>
+        <input
+          id="scale-range"
+          type="range"
+          step="0.01"
+          min={minScale}
+          max={maxScale}
+          value={scale}
+          onChange={handleRangeOnChange}
+        />
+      </p>
+      <p>Scale value is: {scale}</p>
+
+      <p>
+        <label>
+          Surname: <input id="surname-input" type="text" />
+        </label>
+      </p>
+
+      <p>
+        <label htmlFor="lastname-input">Lastname: </label>
+        <input id="lastname-input" type="text" />
+      </p>
+
+      <p>
+        <label htmlFor="bio-text">Brief bio: </label>
+        <textarea id="bio-text"></textarea>
+      </p>
+
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam fugit
         reprehenderit a consequuntur explicabo adipisci rem reiciendis sed! Ea
