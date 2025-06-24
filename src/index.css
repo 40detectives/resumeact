@@ -30,6 +30,14 @@ body {
   background-color: #777;
 }
 
+img {
+  vertical-align: middle;
+  max-width: 100%;
+  height: auto;
+  font-style: italic;
+  shape-margin: 1rem;
+}
+
 .bolder-react-icon {
   path {
     stroke-width: 2rem;
