@@ -1,4 +1,4 @@
-import type { SummarySection } from "@/types/resume";
+import type { SummarySection } from "@/types/resume-types";
 import styles from "./summary.module.css";
 
 interface Props {

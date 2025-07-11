@@ -2,9 +2,14 @@ import type { Interval } from "date-fns";
 
 // type ResumeSection = object;
 
-interface BasicSection {
+interface NameSection {
   firstName: string;
   lastName: string;
+}
+
+type PictureSection = string;
+
+interface ContactSection {
   email: string;
   phone: string;
   location: string;
@@ -43,9 +48,22 @@ interface Experience {
 }
 
 interface Resume {
-  basic: BasicSection;
+  name: NameSection;
+  picture: PictureSection;
+  contact: ContactSection;
   summary?: SummarySection;
   professionalProfiles?: ProfessionalProfiles;
   education?: Education[];
   experience?: Experience[];
 }
+
+export type {
+  NameSection,
+  PictureSection,
+  ContactSection,
+  SummarySection,
+  ProfessionalProfiles,
+  Education,
+  Experience,
+  Resume,
+};

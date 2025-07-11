@@ -11,9 +11,3 @@ h1 {
 .lastname {
   font-weight: 500;
 }
-
-.crumb {
-  display: flex;
-  gap: 0.45rem;
-  align-items: center;
-}

@@ -1,4 +1,4 @@
-import type { Education as EducationSection } from "@/types/resume";
+import type { Education as EducationSection } from "@/types/resume-types";
 import { Fragment } from "react";
 import styles from "./education.module.css";
 
