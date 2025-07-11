@@ -52,13 +52,13 @@ img {
   margin-block: auto;
 }
 
-.main-viewport {
+.viewport-frame {
   display: flex;
   flex-flow: row nowrap;
   height: 100svh;
 }
 
-.aside-editor {
+.editor-frame {
   flex-grow: 1;
   overflow: auto;
   min-width: max(min(30%, 450px), 300px);
@@ -126,11 +126,11 @@ img {
 }
 
 @media only screen and (width <= 600px) {
-  .main-viewport {
+  .viewport-frame {
     flex-flow: column nowrap;
   }
 
-  .aside-editor {
+  .editor-frame {
     flex: 1 1 50%;
     order: 1;
     min-width: fit-content;
@@ -157,7 +157,7 @@ img {
     padding: 0;
   }
 
-  .aside-editor {
+  .editor-frame {
     display: none;
   }
 

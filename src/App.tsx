@@ -10,7 +10,7 @@ import { ProfilePicture } from "./sections/profile-pic/profile-pic";
 
 function App() {
   return (
-    <main className="main-viewport">
+    <div className="viewport-frame">
       <FormView />
       <PreviewFrame>
         <PagedView>
@@ -76,7 +76,7 @@ function App() {
           </div>
         </PagedView>
       </PreviewFrame>
-    </main>
+    </div>
   );
 }
 
