@@ -2,20 +2,29 @@ import { FormView } from "@/compositions/form-view/form-view";
 import { PagedView } from "@/compositions/paged-view/paged-view";
 import { PreviewFrame } from "@/compositions/preview-frame/preview-frame";
 import { resumeDataES } from "@/data/fran.es";
-import { Basic } from "@/sections/basic/basic";
 import { Education } from "@/sections/education/education";
+import { Name } from "@/sections/name/name";
 import { Summary } from "@/sections/summary/summary";
-import "./App.css";
+import { Contact } from "./sections/contact/contact";
+import { ProfilePicture } from "./sections/profile-pic/profile-pic";
 
 function App() {
   return (
-    <main className="main-viewport">
+    <div className="viewport-frame">
       <FormView />
       <PreviewFrame>
         <PagedView>
           <div className="display-page">
-            <Basic data={resumeDataES.basic} />
+            <Name data={resumeDataES.name} />
+            <ProfilePicture
+              firstName={resumeDataES.name.firstName}
+              picture={resumeDataES.picture}
+              bgAccentColor="#8a937f"
+              variant="squared-shadow-bg"
+            />
+            <Contact data={resumeDataES.contact} />
             {resumeDataES.summary && <Summary data={resumeDataES.summary} />}
+
             {resumeDataES.education && (
               <Education data={resumeDataES.education} />
             )}
@@ -67,7 +76,7 @@ function App() {
           </div>
         </PagedView>
       </PreviewFrame>
-    </main>
+    </div>
   );
 }
 

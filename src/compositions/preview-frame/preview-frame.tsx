@@ -100,8 +100,8 @@ export const PreviewFrame: React.FC<Props> = ({ children }) => {
   }, [setScaleFromResizeOb]);
 
   return (
-    <section className={`preview-frame ${scrollMode}-scroll`} ref={previewRef}>
+    <main className={`preview-frame ${scrollMode}-scroll`} ref={previewRef}>
       {children}
-    </section>
+    </main>
   );
 };

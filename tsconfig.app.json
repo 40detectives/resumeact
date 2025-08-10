@@ -10,7 +10,8 @@
     /* Enable Absolute Imports */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "/*": ["./public/*"]
     },
 
     /* Bundler mode */

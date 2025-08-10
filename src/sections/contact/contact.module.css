@@ -1,0 +1,5 @@
+.crumb {
+  display: flex;
+  gap: 0.45rem;
+  align-items: center;
+}

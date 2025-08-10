@@ -30,6 +30,14 @@ body {
   background-color: #777;
 }
 
+img {
+  vertical-align: middle;
+  max-width: 100%;
+  height: auto;
+  font-style: italic;
+  shape-margin: 1rem;
+}
+
 .bolder-react-icon {
   path {
     stroke-width: 2rem;
@@ -44,13 +52,13 @@ body {
   margin-block: auto;
 }
 
-.main-viewport {
+.viewport-frame {
   display: flex;
   flex-flow: row nowrap;
   height: 100svh;
 }
 
-.aside-editor {
+.editor-frame {
   flex-grow: 1;
   overflow: auto;
   min-width: max(min(30%, 450px), 300px);
@@ -118,11 +126,11 @@ body {
 }
 
 @media only screen and (width <= 600px) {
-  .main-viewport {
+  .viewport-frame {
     flex-flow: column nowrap;
   }
 
-  .aside-editor {
+  .editor-frame {
     flex: 1 1 50%;
     order: 1;
     min-width: fit-content;
@@ -149,7 +157,7 @@ body {
     padding: 0;
   }
 
-  .aside-editor {
+  .editor-frame {
     display: none;
   }
 

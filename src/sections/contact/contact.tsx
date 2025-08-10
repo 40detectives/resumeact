@@ -1,21 +1,17 @@
-import type { BasicSection } from "@/types/resume";
+import type { ContactSection } from "@/types/resume-types";
 import { FiPhone } from "react-icons/fi";
 import { ImLink } from "react-icons/im";
 import { SiMaildotru } from "react-icons/si";
 import { SlLocationPin } from "react-icons/sl";
-import styles from "./basic.module.css";
+import styles from "./contact.module.css";
 
 interface Props {
-  data: BasicSection;
+  data: ContactSection;
 }
 
-export const Basic: React.FC<Props> = ({ data }) => {
+export const Contact: React.FC<Props> = ({ data }) => {
   return (
     <>
-      <h1>
-        <span className={styles.firstname}>{data.firstName}</span>
-        <span className={styles.lastname}>{data.lastName}</span>
-      </h1>
       <h3 className={styles.crumb}>
         <SiMaildotru size={"1.75em"} /> {data.email}
       </h3>

@@ -20,6 +20,14 @@
         "ignore": ["stylelint-commands"],
         "ignoreComments": ["/^[a-z-]*:.*;$/"]
       }
+    ],
+    "selector-pseudo-class-no-unknown": [
+      true,
+      { "ignorePseudoClasses": ["import", "export", "global"] }
+    ],
+    "property-no-unknown": [
+      true,
+      { "ignoreSelectors": ["/^:import\\(/", "/^:export/"] }
     ]
   }
 }

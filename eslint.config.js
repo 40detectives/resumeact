@@ -8,32 +8,38 @@ import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 import globals from "globals";
 import tseslint from "typescript-eslint";
+import { globalIgnores } from "eslint/config";
 
 export default tseslint.config(
-  {
-    name: "my-custom-eslint/ignore-dist-folders",
-    ignores: ["dist", "public"],
-  },
+  globalIgnores(["dist"]),
   {
     name: "my-custom-eslint/recommended-ts",
     files: ["**/*.{ts,tsx}"],
     extends: [
       js.configs.recommended,
-      ...tseslint.configs.recommendedTypeChecked,
+      tseslint.configs.recommendedTypeChecked,
+      eslintPluginImportX.flatConfigs.recommended,
       eslintPluginImportX.flatConfigs.typescript,
     ],
     languageOptions: {
-      parser: tseslint.parser,
+      parser: tseslint.parser, // optional when using the official shared configs
       parserOptions: {
         projectService: true,
         tsconfigRootDir: import.meta.dirname,
+        sourceType: "module",
+        ecmaVersion: "latest",
         ecmaFeatures: {
           jsx: true,
         },
       },
     },
-    plugins: {
-      "@typescript-eslint": tseslint.plugin,
+    settings: {
+      "import-x/resolver-next": [
+        createTypeScriptImportResolver({
+          alwaysTryTypes: true,
+          project: ["tsconfig.app.json"],
+        }),
+      ],
     },
     rules: {
       "@typescript-eslint/no-unused-vars": [
@@ -50,25 +56,13 @@ export default tseslint.config(
     },
   },
   {
-    name: "my-custom-eslint/recommended-import-x",
-    files: ["**/*.{ts,tsx}"],
-    extends: [eslintPluginImportX.flatConfigs.recommended],
-    settings: {
-      "import-x/resolver-next": [
-        createTypeScriptImportResolver({
-          alwaysTryTypes: true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
-          // use an array of glob patterns
-          project: ["tsconfig.app.json"],
-        }),
-      ],
-    },
-  },
-  {
     name: "my-custom-eslint/recommended-react-and-jsx",
     files: ["**/*.{ts,tsx}"],
     extends: [
       reactPlugin.configs.flat.recommended,
       reactPlugin.configs.flat["jsx-runtime"],
+      reactHooks.configs["recommended-latest"],
+      reactRefresh.configs.vite,
       jsxA11y.flatConfigs.recommended,
     ],
     languageOptions: {
@@ -77,18 +71,12 @@ export default tseslint.config(
       sourceType: "module",
       globals: globals.browser,
     },
-    plugins: {
-      react: reactPlugin,
-      "react-hooks": reactHooks,
-      "react-refresh": reactRefresh,
-    },
     settings: {
       react: {
         version: "detect",
       },
     },
     rules: {
-      ...reactHooks.configs.recommended.rules,
       "react-refresh/only-export-components": [
         "warn",
         { allowConstantExport: true },
