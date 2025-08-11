@@ -6,6 +6,10 @@
   --page-scale: 1;
   --scaled-height: auto;
   --scaled-width: auto;
+  --palette-1: #202020;
+  --palette-2: #8a937f;
+  --palette-3: #bbb;
+  --palette-4: #eaeaea;
 
   box-sizing: border-box;
   color: #213547;
@@ -38,10 +42,20 @@ img {
   shape-margin: 1rem;
 }
 
-.bolder-react-icon {
-  path {
-    stroke-width: 2rem;
+.react-icon {
+  vertical-align: middle;
+
+  &.bolder-path {
+    path {
+      stroke-width: 2rem;
+    }
   }
+}
+
+.injected-icon svg {
+  display: block;
+  margin-inline: auto;
+  /* vertical-align: middle; */
 }
 
 .center {

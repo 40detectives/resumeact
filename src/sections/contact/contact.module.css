@@ -1,5 +1,57 @@
-.crumb {
-  display: flex;
-  gap: 0.45rem;
+:global(.theme-monotone) {
+
+}
+
+.pill {
+  padding: 2px;
+  border-radius: 35%;
+  background-color: var(--palette-2);
+  color: white;
+
+  svg {
+    width: 75%;
+  }
+}
+
+.outline {
+  color: var(--palette-2);
+}
+
+.contact-section {
+  display: grid;
   align-items: center;
+  margin-block: 1rem;
+  padding-inline: 0;
+  list-style-type: none;
+}
+
+.multiple-row {
+  &.contact-section {
+    row-gap: 0.45rem;
+  }
+}
+
+.one-row {
+  grid-column: 1/-1;
+  grid-auto-flow: column;
+
+  &.contact-section {
+    column-gap: 0.4rem;
+  }
+}
+
+.contact-method { /* this is the <li> elem */
+  display: grid;
+  grid-template-columns: max-content auto;
+  column-gap: 0.25rem;
+  align-items: center;
+}
+
+.icon {
+
+}
+
+.data {
+  font-style: normal;
+  font-size: 0.8rem;
 }
