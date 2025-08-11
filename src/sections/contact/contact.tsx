@@ -1,32 +1,49 @@
+import CallIcon from "@/shared/ui/material-icons/call.svg?no-inline";
+import MailIcon from "@/shared/ui/material-icons/email.svg?no-inline";
+import HomeIcon from "@/shared/ui/material-icons/home-pin.svg?no-inline";
+import WebIcon from "@/shared/ui/material-icons/web.svg?no-inline";
 import type { ContactSection } from "@/types/resume-types";
-import { FiPhone } from "react-icons/fi";
-import { ImLink } from "react-icons/im";
-import { SiMaildotru } from "react-icons/si";
-import { SlLocationPin } from "react-icons/sl";
+import { clsx } from "clsx";
+import { ReactSVG } from "react-svg";
 import styles from "./contact.module.css";
 
 interface Props {
   data: ContactSection;
+  iconStyle?: "pill" | "outline";
+  layout?: "one-row" | "multiple-row";
 }
 
-export const Contact: React.FC<Props> = ({ data }) => {
+export const Contact: React.FC<Props> = ({
+  data,
+  iconStyle = "outline",
+  layout = "multiple-row",
+}) => {
+  const iconClassNames = clsx(
+    "injected-icon",
+    styles[iconStyle],
+    styles["icon"]
+  );
+
   return (
-    <>
-      <h3 className={styles.crumb}>
-        <SiMaildotru size={"1.75em"} /> {data.email}
-      </h3>
-      <h3 className={styles.crumb}>
-        <FiPhone size={"1.75em"} /> {data.phone}
-      </h3>
-      <h3 className={styles.crumb}>
-        <SlLocationPin className="bolder-react-icon" size={"1.75em"} />{" "}
-        {data.location}
-      </h3>
+    <ul className={clsx(styles["contact-section"], styles[layout])}>
+      <li className={styles["contact-method"]}>
+        <ReactSVG className={iconClassNames} src={MailIcon} />
+        <address className={styles["data"]}>{data.email}</address>
+      </li>
+      <li className={styles["contact-method"]}>
+        <ReactSVG className={iconClassNames} src={CallIcon} />
+        <address className={styles["data"]}>{data.phone}</address>
+      </li>
+      <li className={styles["contact-method"]}>
+        <ReactSVG className={iconClassNames} src={HomeIcon} />
+        <address className={styles["data"]}>{data.location}</address>
+      </li>
       {data.website && (
-        <h3 className={styles.crumb}>
-          <ImLink size={"1.75em"} /> {data.website}
-        </h3>
+        <li className={styles["contact-method"]}>
+          <ReactSVG className={iconClassNames} src={WebIcon} />
+          <address className={styles["data"]}>{data.website}</address>
+        </li>
       )}
-    </>
+    </ul>
   );
 };
