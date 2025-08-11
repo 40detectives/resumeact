@@ -1,4 +1,4 @@
-import { ViewportProvider } from "@/contexts/viewport-provider.tsx";
+import { ThemeProvider } from "@/contexts/theme-provider.tsx";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { IconContext } from "react-icons";
@@ -8,9 +8,9 @@ import "./index.css";
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <IconContext.Provider value={{ className: "react-icon" }}>
-      <ViewportProvider>
+      <ThemeProvider theme={"monotone"} palette={["#8a937f"]}>
         <App />
-      </ViewportProvider>
+      </ThemeProvider>
     </IconContext.Provider>
   </StrictMode>
 );
