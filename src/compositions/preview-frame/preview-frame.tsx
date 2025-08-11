@@ -1,14 +1,16 @@
 import { useViewContext } from "@/contexts/viewport-context";
+import type { ThemeNames } from "@/types/theme-types";
 import { calcScaleAndClamp } from "@/utils/math";
 import { debounce } from "@/utils/optimization";
+import { clsx } from "clsx";
 import { useCallback, useLayoutEffect, useRef } from "react";
-import styles from "./preview-frame.module.css";
 
 interface Props {
+  theme: ThemeNames;
   children?: React.ReactNode;
 }
 
-export const PreviewFrame: React.FC<Props> = ({ children }) => {
+export const PreviewFrame: React.FC<Props> = ({ theme, children }) => {
   const previewRef = useRef<HTMLElement>(null);
 
   const {
@@ -100,7 +102,14 @@ export const PreviewFrame: React.FC<Props> = ({ children }) => {
   }, [setScaleFromResizeOb]);
 
   return (
-    <main className={`preview-frame ${scrollMode}-scroll`} ref={previewRef}>
+    <main
+      className={clsx(
+        `theme-${theme}`,
+        "preview-frame",
+        `${scrollMode}-scroll`
+      )}
+      ref={previewRef}
+    >
       {children}
     </main>
   );
