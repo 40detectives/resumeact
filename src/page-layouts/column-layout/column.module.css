@@ -1,0 +1,11 @@
+.column {
+  display: contents;
+}
+
+.sidebar > * {
+  grid-column: sidebar;
+}
+
+.main > * {
+  grid-column: main;
+}
