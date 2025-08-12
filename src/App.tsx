@@ -3,6 +3,8 @@ import { PagedView } from "@/compositions/paged-view/paged-view";
 import { PreviewFrame } from "@/compositions/preview-frame/preview-frame";
 import { ViewportProvider } from "@/contexts/viewport-provider";
 import { resumeDataES } from "@/data/fran.es";
+import { Column } from "@/page-layouts/column-layout/column";
+import { ColumnLayout } from "@/page-layouts/column-layout/column-layout";
 import { Contact } from "@/sections/contact/contact";
 import { Education } from "@/sections/education/education";
 import { Name } from "@/sections/name/name";
@@ -20,29 +22,35 @@ function App() {
         <PreviewFrame theme={theme}>
           <PagedView>
             <div className="display-page">
-              <Name data={resumeDataES.name} />
-              <ProfilePicture
-                firstName={resumeDataES.name.firstName}
-                picture={resumeDataES.picture}
-                bgAccentColor="#8a937f"
-                variant="squared-shadow-bg"
-              />
-              <Contact
-                data={resumeDataES.contact}
-                iconStyle="outline"
-                layout="multiple-row"
-              />
-              {resumeDataES.summary && <Summary data={resumeDataES.summary} />}
-
-              <Contact
-                data={resumeDataES.contact}
-                iconStyle="pill"
-                layout="one-row"
-              />
-              {resumeDataES.education && (
-                <Education data={resumeDataES.education} />
-              )}
-
+              <ColumnLayout variant="left-sidebar">
+                <Column type="sidebar">
+                  <Name data={resumeDataES.name} />
+                  <ProfilePicture
+                    firstName={resumeDataES.name.firstName}
+                    picture={resumeDataES.picture}
+                    bgAccentColor="#8a937f"
+                    variant="squared-shadow-bg"
+                  />
+                  <Contact
+                    data={resumeDataES.contact}
+                    iconStyle="outline"
+                    layout="multiple-row"
+                  />
+                  {resumeDataES.summary && (
+                    <Summary data={resumeDataES.summary} />
+                  )}
+                </Column>
+                <Column type="main">
+                  <Contact
+                    data={resumeDataES.contact}
+                    iconStyle="pill"
+                    layout="one-row"
+                  />
+                  {resumeDataES.education && (
+                    <Education data={resumeDataES.education} />
+                  )}
+                </Column>
+              </ColumnLayout>
               <Contact
                 data={resumeDataES.contact}
                 iconStyle="pill"
