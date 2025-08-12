@@ -1,0 +1,14 @@
+.column-layout {
+  display: grid;
+}
+
+:global(.variant) {
+  &.left-sidebar {
+    grid-template-columns: [sidebar] 1fr [main] 2fr;
+    grid-auto-flow: dense;
+  }
+
+  &.right-sidebar {
+    grid-template-columns: [main] 2fr [sidebar] 1fr;
+  }
+}
