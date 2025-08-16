@@ -1,5 +1,5 @@
 import { useViewContext } from "@/contexts/viewport-context";
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 
 interface Props {
   children?: React.ReactNode;
