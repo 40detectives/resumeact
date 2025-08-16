@@ -12,36 +12,48 @@ interface Customizable<TVariant extends string = string> {
   palette: [string, string, string, string]; // CSS colors
 }
 
-export type { ThemeNames, Themeable, Customizable };
+export type { Customizable, Themeable, ThemeNames };
 
 export type ColumnLayoutItem = "full-row" | "one-column";
 
-export type JustifyContent =
-  | "normal"
-  | "start"
-  | "left"
-  | "center"
-  | "right"
-  | "end"
-  | "stretch"
-  | "space-between"
-  | "space-around"
-  | "space-evenly";
+export type CSSInheritanceValue =
+  | "inherit"
+  | "initial"
+  | "revert"
+  | "revert-layer"
+  | "unset";
 
-export type AlignItems =
-  | "normal"
-  | "stretch"
+export type JustifyItems =
   | "anchor-center"
   | "baseline"
-  | "start"
-  | "flex-start"
   | "center"
   | "end"
   | "flex-end"
+  | "flex-start"
+  | "left"
+  | "normal"
+  | "right"
+  | "self-end"
   | "self-start"
-  | "self-end";
+  | "start"
+  | "stretch"
+  | CSSInheritanceValue;
 
-type StandardPropKeys = "data" | "children" | "variant";
+export type AlignItems =
+  | "anchor-center"
+  | "baseline"
+  | "center"
+  | "end"
+  | "flex-end"
+  | "flex-start"
+  | "normal"
+  | "self-end"
+  | "self-start"
+  | "start"
+  | "stretch"
+  | CSSInheritanceValue;
+
+type StandardPropKeys = "data" | "children" | "variant" | "type";
 
 export type OverridePropKeys<T> = Exclude<keyof T, StandardPropKeys>;
 

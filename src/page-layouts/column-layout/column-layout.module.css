@@ -1,5 +1,7 @@
 .column-layout {
   display: grid;
+  column-gap: 2ch;
+  align-items: center; /* ? ---> maybe not needed anymore? */
 }
 
 :global(.variant) {
@@ -11,4 +13,8 @@
   &.right-sidebar {
     grid-template-columns: [main] 2fr [sidebar] 1fr;
   }
+}
+
+:global(.override) {
+
 }

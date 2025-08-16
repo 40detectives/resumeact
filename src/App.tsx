@@ -28,8 +28,7 @@ function App() {
                     data={resumeDataES.name}
                     highlight="lastname"
                     bold="firstname"
-                    layout="full-row"
-                    justifyContent="center"
+                    // layout="one-column"
                   />
                   <ProfilePicture
                     firstName={resumeDataES.name.firstName}

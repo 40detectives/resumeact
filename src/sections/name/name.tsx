@@ -1,10 +1,14 @@
 import { useSetCSSProperty } from "@/shared/hooks/useSetCSSProperty";
 import type { NameSection } from "@/types/resume-types";
-import type { ColumnLayoutItem, JustifyContent } from "@/types/theme-types";
+import type {
+  AlignItems,
+  ColumnLayoutItem,
+  JustifyItems,
+} from "@/types/theme-types";
 import { hasOverrideProp } from "@/utils/style-overriding";
 import { clsx } from "clsx";
-import styles from "./name.module.css";
 import { useRef } from "react";
+import styles from "./name.module.css";
 
 interface Props {
   data: NameSection;
@@ -12,7 +16,8 @@ interface Props {
   accentColor?: "string";
   bold?: "none" | "firstname" | "lastname" | "all";
   layout?: ColumnLayoutItem;
-  justifyContent?: JustifyContent;
+  justifySelf?: JustifyItems;
+  alignSelf?: AlignItems;
 }
 
 export const Name: React.FC<Props> = ({
@@ -21,13 +26,19 @@ export const Name: React.FC<Props> = ({
   highlight,
   accentColor,
   layout,
-  justifyContent,
+  justifySelf,
+  alignSelf,
 }) => {
   const h1Ref = useRef<HTMLHeadingElement>(null);
 
   useSetCSSProperty<HTMLHeadingElement>(h1Ref, {
     property: "--justify-value",
-    value: justifyContent,
+    value: justifySelf,
+  });
+
+  useSetCSSProperty<HTMLHeadingElement>(h1Ref, {
+    property: "--align-value",
+    value: alignSelf,
   });
 
   return (
@@ -41,10 +52,12 @@ export const Name: React.FC<Props> = ({
             accentColor,
             bold,
             layout,
-            justifyContent,
+            justifySelf,
+            alignSelf,
           }) && "override",
           layout,
-          justifyContent && "justify-content"
+          justifySelf && "justify-self",
+          alignSelf && "align-self"
         )}
       >
         <span

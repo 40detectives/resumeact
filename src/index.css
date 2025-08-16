@@ -1,15 +1,3 @@
-@property --justify-value {
-  syntax: "normal | start | left | center | right | end | stretch | space-between | space-around | space-evenly";
-  inherits: true;
-  initial-value: start;
-}
-
-@property --align-value {
-  syntax: "normal | stretch | anchor-center | baseline | start | flex-start | center | end | flex-end | self-start | self-end";
-  inherits: false;
-  initial-value: center;
-}
-
 :root {
   /* A4 is 210mm x 297mm, aprox ratio: 1:1.4142 */
   --a4-width: 210mm;
@@ -60,13 +48,49 @@ img {
 }
 
 .override {
-  &.justify-content {
-    justify-content: var(--justify-value);
+  &:where(.justify-items) {
+    &.sidebar-column > * {
+      justify-self: var(--justify-value);
+    }
+
+    &.main-column > * {
+      justify-self: var(--justify-value);
+    }
+  }
+
+  &:where(.align-items) {
+    &.sidebar-column > * {
+      align-self: var(--align-value);
+    }
+
+    &.main-column > * {
+      align-self: var(--align-value);
+    }
   }
 
   &.align-items {
     align-items: var(--align-value);
   }
+
+  &.justify-items {
+    justify-items: var(--justify-value);
+  }
+
+  &.align-self {
+    align-self: var(--align-value);
+  }
+
+  &.justify-self {
+    justify-self: var(--justify-value);
+  }
+}
+
+:where(.sidebar-column > *) {
+  grid-column: sidebar;
+}
+
+:where(.main-column > *) {
+  grid-column: main;
 }
 
 .full-row {
@@ -76,7 +100,6 @@ img {
 
 .one-column {
   /* to be determined */
-  grid-column: auto; /* ??? */
 }
 
 .react-icon {
