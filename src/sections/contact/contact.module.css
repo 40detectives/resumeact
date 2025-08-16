@@ -25,16 +25,13 @@
   list-style-type: none;
 }
 
-.multiple-row {
+:global(.one-column) {
   &.contact-section {
     row-gap: 0.45rem;
   }
 }
 
-.one-row {
-  grid-column: 1/-1;
-  grid-auto-flow: column;
-
+:global(.full-row) {
   &.contact-section {
     column-gap: 0.4rem;
   }

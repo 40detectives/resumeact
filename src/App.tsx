@@ -24,7 +24,13 @@ function App() {
             <div className="display-page">
               <ColumnLayout variant="left-sidebar">
                 <Column type="sidebar">
-                  <Name data={resumeDataES.name} />
+                  <Name
+                    data={resumeDataES.name}
+                    highlight="lastname"
+                    bold="firstname"
+                    layout="full-row"
+                    justifyContent="center"
+                  />
                   <ProfilePicture
                     firstName={resumeDataES.name.firstName}
                     picture={resumeDataES.picture}
@@ -34,7 +40,7 @@ function App() {
                   <Contact
                     data={resumeDataES.contact}
                     iconStyle="outline"
-                    layout="multiple-row"
+                    layout="one-column"
                   />
                   {resumeDataES.summary && (
                     <Summary data={resumeDataES.summary} />
@@ -44,7 +50,7 @@ function App() {
                   <Contact
                     data={resumeDataES.contact}
                     iconStyle="pill"
-                    layout="one-row"
+                    layout="full-row"
                   />
                   {resumeDataES.education && (
                     <Education data={resumeDataES.education} />
@@ -54,7 +60,7 @@ function App() {
               <Contact
                 data={resumeDataES.contact}
                 iconStyle="pill"
-                layout="one-row"
+                layout="full-row"
               />
             </div>
             <div className="display-page">

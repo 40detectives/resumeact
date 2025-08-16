@@ -6,17 +6,18 @@ import type { ContactSection } from "@/types/resume-types";
 import { clsx } from "clsx";
 import { ReactSVG } from "react-svg";
 import styles from "./contact.module.css";
+import type { ColumnLayoutItem } from "@/types/theme-types";
 
 interface Props {
   data: ContactSection;
   iconStyle?: "pill" | "outline";
-  layout?: "one-row" | "multiple-row";
+  layout?: ColumnLayoutItem;
 }
 
 export const Contact: React.FC<Props> = ({
   data,
   iconStyle = "outline",
-  layout = "multiple-row",
+  layout = "one-column",
 }) => {
   const iconClassNames = clsx(
     "injected-icon",
@@ -25,7 +26,7 @@ export const Contact: React.FC<Props> = ({
   );
 
   return (
-    <ul className={clsx(styles["contact-section"], styles[layout])}>
+    <ul className={clsx(styles["contact-section"], layout)}>
       <li className={styles["contact-method"]}>
         <ReactSVG className={iconClassNames} src={MailIcon} />
         <address className={styles["data"]}>{data.email}</address>

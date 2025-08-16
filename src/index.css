@@ -1,3 +1,15 @@
+@property --justify-value {
+  syntax: "normal | start | left | center | right | end | stretch | space-between | space-around | space-evenly";
+  inherits: true;
+  initial-value: start;
+}
+
+@property --align-value {
+  syntax: "normal | stretch | anchor-center | baseline | start | flex-start | center | end | flex-end | self-start | self-end";
+  inherits: false;
+  initial-value: center;
+}
+
 :root {
   /* A4 is 210mm x 297mm, aprox ratio: 1:1.4142 */
   --a4-width: 210mm;
@@ -45,6 +57,26 @@ img {
   height: auto;
   font-style: italic;
   shape-margin: 1rem;
+}
+
+.override {
+  &.justify-content {
+    justify-content: var(--justify-value);
+  }
+
+  &.align-items {
+    align-items: var(--align-value);
+  }
+}
+
+.full-row {
+  grid-column: 1/-1;
+  grid-auto-flow: column;
+}
+
+.one-column {
+  /* to be determined */
+  grid-column: auto; /* ??? */
 }
 
 .react-icon {

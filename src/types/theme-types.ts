@@ -14,6 +14,33 @@ interface Customizable<TVariant extends string = string> {
 
 export type { ThemeNames, Themeable, Customizable };
 
+export type ColumnLayoutItem = "full-row" | "one-column";
+
+export type JustifyContent =
+  | "normal"
+  | "start"
+  | "left"
+  | "center"
+  | "right"
+  | "end"
+  | "stretch"
+  | "space-between"
+  | "space-around"
+  | "space-evenly";
+
+export type AlignItems =
+  | "normal"
+  | "stretch"
+  | "anchor-center"
+  | "baseline"
+  | "start"
+  | "flex-start"
+  | "center"
+  | "end"
+  | "flex-end"
+  | "self-start"
+  | "self-end";
+
 type StandardPropKeys = "data" | "children" | "variant";
 
 export type OverridePropKeys<T> = Exclude<keyof T, StandardPropKeys>;
