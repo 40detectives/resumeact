@@ -2,10 +2,10 @@
   display: contents;
 }
 
-.sidebar > * {
+:where(.sidebar > *) {
   grid-column: sidebar;
 }
 
-.main > * {
+:where(.main > *) {
   grid-column: main;
 }
