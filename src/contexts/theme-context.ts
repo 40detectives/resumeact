@@ -3,7 +3,7 @@ import { createContext, useContext } from "react";
 
 interface ThemeContextType<T> extends Themeable<ThemeNames> {
   setTheme: (theme: T) => void;
-  setPalette: (color: string[]) => void;
+  setPalette: (color: Themeable["palette"]) => void;
 }
 export const ThemeContext = createContext<ThemeContextType<ThemeNames> | null>(
   null

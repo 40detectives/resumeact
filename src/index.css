@@ -6,10 +6,10 @@
   --page-scale: 1;
   --scaled-height: auto;
   --scaled-width: auto;
-  --palette-1: #202020;
-  --palette-2: #8a937f;
-  --palette-3: #bbb;
-  --palette-4: #eaeaea;
+  --palette-0: #202020;
+  --palette-1: #8a937f;
+  --palette-2: #bbb;
+  --palette-3: #eaeaea;
 
   box-sizing: border-box;
   color: #213547;
@@ -29,6 +29,11 @@
   box-sizing: inherit;
 }
 
+:where(h1) {
+  margin-block: 0.67em;
+  font-size: 2em;
+}
+
 body {
   margin: 0;
   background-color: #777;
@@ -40,6 +45,61 @@ img {
   height: auto;
   font-style: italic;
   shape-margin: 1rem;
+}
+
+.override {
+  &:where(.justify-items) {
+    &.sidebar-column > * {
+      justify-self: var(--justify-value);
+    }
+
+    &.main-column > * {
+      justify-self: var(--justify-value);
+    }
+  }
+
+  &:where(.align-items) {
+    &.sidebar-column > * {
+      align-self: var(--align-value);
+    }
+
+    &.main-column > * {
+      align-self: var(--align-value);
+    }
+  }
+
+  &.align-items {
+    align-items: var(--align-value);
+  }
+
+  &.justify-items {
+    justify-items: var(--justify-value);
+  }
+
+  &.align-self {
+    align-self: var(--align-value);
+  }
+
+  &.justify-self {
+    justify-self: var(--justify-value);
+  }
+}
+
+:where(.sidebar-column > *) {
+  grid-column: sidebar;
+}
+
+:where(.main-column > *) {
+  grid-column: main;
+}
+
+.full-row {
+  grid-column: 1/-1;
+  grid-auto-flow: column;
+}
+
+.one-column {
+  /* to be determined */
 }
 
 .react-icon {

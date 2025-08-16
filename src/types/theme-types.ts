@@ -12,4 +12,53 @@ interface Customizable<TVariant extends string = string> {
   palette: [string, string, string, string]; // CSS colors
 }
 
-export type { ThemeNames, Themeable, Customizable };
+export type { Customizable, Themeable, ThemeNames };
+
+export type ColumnLayoutItem = "full-row" | "one-column";
+
+export type CSSInheritanceValue =
+  | "inherit"
+  | "initial"
+  | "revert"
+  | "revert-layer"
+  | "unset";
+
+export type JustifyItems =
+  | "anchor-center"
+  | "baseline"
+  | "center"
+  | "end"
+  | "flex-end"
+  | "flex-start"
+  | "left"
+  | "normal"
+  | "right"
+  | "self-end"
+  | "self-start"
+  | "start"
+  | "stretch"
+  | CSSInheritanceValue;
+
+export type AlignItems =
+  | "anchor-center"
+  | "baseline"
+  | "center"
+  | "end"
+  | "flex-end"
+  | "flex-start"
+  | "normal"
+  | "self-end"
+  | "self-start"
+  | "start"
+  | "stretch"
+  | CSSInheritanceValue;
+
+type StandardPropKeys = "data" | "children" | "variant" | "type";
+
+export type OverridePropKeys<T> = Exclude<keyof T, StandardPropKeys>;
+
+// Next type is to get autocomplete for style override
+// props although they should be always optional
+export type OverridePropsButValueOptional<T> = {
+  [K in OverridePropKeys<T>]: T[K] | undefined;
+};

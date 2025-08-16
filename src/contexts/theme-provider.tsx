@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { ThemeContext } from "./theme-context";
-import type { ThemeNames } from "@/types/theme-types";
+import type { Themeable, ThemeNames } from "@/types/theme-types";
 
 interface Props {
   children?: React.ReactNode;
   theme: ThemeNames;
-  palette: string[];
+  palette: Themeable["palette"];
 }
 
 export const ThemeProvider: React.FC<Props> = ({
@@ -19,7 +19,7 @@ export const ThemeProvider: React.FC<Props> = ({
   return (
     <ThemeContext.Provider
       value={{
-        theme: theme,
+        theme,
         setTheme,
         palette,
         setPalette,
