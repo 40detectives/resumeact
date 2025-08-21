@@ -22,13 +22,13 @@ function App() {
         <PreviewFrame theme={theme}>
           <PagedView>
             <div className="display-page">
-              <ColumnLayout variant="left-sidebar">
-                <Column type="sidebar">
+              <ColumnLayout arrangement="left-sidebar">
+                <Column slot="sidebar">
                   <Name
                     data={resumeDataES.name}
                     highlight="lastname"
                     bold="firstname"
-                    // layout="one-column"
+                    // columnSpan="col-span-1"
                   />
                   <ProfilePicture
                     firstName={resumeDataES.name.firstName}
@@ -38,18 +38,17 @@ function App() {
                   />
                   <Contact
                     data={resumeDataES.contact}
-                    iconStyle="outline"
-                    layout="one-column"
+                    columnSpan="col-span-1"
                   />
                   {resumeDataES.summary && (
                     <Summary data={resumeDataES.summary} />
                   )}
                 </Column>
-                <Column type="main">
+                <Column slot="main">
                   <Contact
                     data={resumeDataES.contact}
                     iconStyle="pill"
-                    layout="full-row"
+                    columnSpan="col-span-full"
                   />
                   {resumeDataES.education && (
                     <Education data={resumeDataES.education} />
@@ -59,7 +58,7 @@ function App() {
               <Contact
                 data={resumeDataES.contact}
                 iconStyle="pill"
-                layout="full-row"
+                columnSpan="col-span-full"
               />
             </div>
             <div className="display-page">

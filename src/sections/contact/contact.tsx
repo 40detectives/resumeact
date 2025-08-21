@@ -6,27 +6,34 @@ import type { ContactSection } from "@/types/resume-types";
 import { clsx } from "clsx";
 import { ReactSVG } from "react-svg";
 import styles from "./contact.module.css";
-import type { ColumnLayoutItem } from "@/types/theme-types";
+import type { ColumnSpan } from "@/types/theme-types";
+import { hasOverrideProp } from "@/utils/style-overriding";
 
 interface Props {
   data: ContactSection;
   iconStyle?: "pill" | "outline";
-  layout?: ColumnLayoutItem;
+  columnSpan?: ColumnSpan;
 }
 
 export const Contact: React.FC<Props> = ({
   data,
   iconStyle = "outline",
-  layout = "one-column",
+  columnSpan = "col-span-1",
 }) => {
   const iconClassNames = clsx(
     "injected-icon",
-    styles[iconStyle],
-    styles["icon"]
+    styles["icon"],
+    styles[iconStyle]
   );
 
   return (
-    <ul className={clsx(styles["contact-section"], layout)}>
+    <ul
+      className={clsx(
+        styles["contact-section"],
+        hasOverrideProp<Props>({ columnSpan, iconStyle }) && "override",
+        columnSpan
+      )}
+    >
       <li className={styles["contact-method"]}>
         <ReactSVG className={iconClassNames} src={MailIcon} />
         <address className={styles["data"]}>{data.email}</address>

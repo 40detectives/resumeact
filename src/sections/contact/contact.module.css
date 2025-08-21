@@ -25,13 +25,13 @@
   list-style-type: none;
 }
 
-:global(.one-column) {
+:global(.col-span-1) {
   &.contact-section {
     row-gap: 0.45rem;
   }
 }
 
-:global(.full-row) {
+:global(.col-span-full) {
   &.contact-section {
     column-gap: 0.4rem;
   }

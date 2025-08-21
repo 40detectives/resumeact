@@ -7,14 +7,14 @@ import { hasOverrideProp } from "@/utils/style-overriding";
 
 interface Props {
   children?: React.ReactNode;
-  type: "sidebar" | "main";
+  slot: "sidebar" | "main";
   justifyItems?: JustifyItems;
   alignItems?: AlignItems;
 }
 
 export const Column: React.FC<Props> = ({
   children,
-  type,
+  slot,
   justifyItems,
   alignItems,
 }) => {
@@ -35,7 +35,7 @@ export const Column: React.FC<Props> = ({
       ref={componentRef}
       className={clsx(
         styles["column"],
-        `${type}-column`,
+        `col-${slot}`,
         hasOverrideProp<Props>({ justifyItems, alignItems }) && "override",
         justifyItems && "justify-items",
         alignItems && "align-items"

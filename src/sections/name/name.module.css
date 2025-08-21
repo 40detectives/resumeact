@@ -39,14 +39,14 @@
     }
   }
 
-  &:global(.one-column) {
+  &:global(.col-span-1) {
     :where(.firstname),
     :where(.lastname) {
       display: block;
     }
   }
 
-  &:global(.full-row) {
+  &:global(.col-span-full) {
     :where(.firstname),
     :where(.lastname) {
       display: unset;
