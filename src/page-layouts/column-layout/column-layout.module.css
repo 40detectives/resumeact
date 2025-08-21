@@ -14,10 +14,3 @@
 .right-sidebar {
   grid-template-columns: [main] 2fr [sidebar] 1fr;
 }
-
-:global(.variant) {
-}
-
-:global(.override) {
-
-}
