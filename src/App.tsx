@@ -27,7 +27,7 @@ function App() {
                   <Name
                     data={resumeDataES.name}
                     highlight="lastname"
-                    bold="firstname"
+                    // bold="lastname"
                     // columnSpan="col-span-1"
                   />
                   <ProfilePicture
