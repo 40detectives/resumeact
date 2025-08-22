@@ -26,3 +26,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# BackstopJS
+backstop_data/engine_scripts/imageStub.jpg
+backstop_data/engine_scripts/cookies.json
+backstop_data/html_report
+## In the future I'll want to commit at least the references:
+backstop_data/bitmaps_reference
+backstop_data/bitmaps_test
+
