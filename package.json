@@ -7,7 +7,12 @@
     "dev": "echo -ne '\\033]0;vite\\007' && vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "backstop:init": "backstop init",
+    "backstop:reference": "backstop reference --config=backstop.cjs",
+    "backstop:test": "BACKSTOP_REMOTE_HTTP_PORT=3005 backstop test --config=backstop.cjs",
+    "backstop:approve": "backstop approve",
+    "backstop:remote": "BACKSTOP_REMOTE_HTTP_PORT=3005 backstop remote --config=backstop.cjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -25,7 +30,7 @@
     "@types/react": "^19.1.11",
     "@types/react-dom": "^19.1.7",
     "@vitejs/plugin-react-swc": "^3.11.0",
-    "eslint": "^9.33.0",
+    "backstopjs": "^6.3.25",
     "eslint": "^9.34.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-import-resolver-typescript": "^4.4.4",
