@@ -9,10 +9,10 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "backstop:init": "backstop init",
-    "backstop:reference": "backstop reference --config=backstop.cjs",
-    "backstop:test": "BACKSTOP_REMOTE_HTTP_PORT=3005 backstop test --config=backstop.cjs",
-    "backstop:approve": "backstop approve",
-    "backstop:remote": "BACKSTOP_REMOTE_HTTP_PORT=3005 backstop remote --config=backstop.cjs"
+    "backstop:reference": "node --env-file=.env node_modules/backstopjs/cli/index.js reference",
+    "backstop:test": "node --env-file=.env node_modules/backstopjs/cli/index.js test",
+    "backstop:approve": "node --env-file=.env node_modules/backstopjs/cli/index.js approve",
+    "backstop:remote": "echo -ne '\\033]0;backstop remote\\007' && node --env-file=.env node_modules/backstopjs/cli/index.js remote"
   },
   "dependencies": {
     "clsx": "^2.1.1",
