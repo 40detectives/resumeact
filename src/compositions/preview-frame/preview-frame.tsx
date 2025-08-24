@@ -103,12 +103,9 @@ export const PreviewFrame: React.FC<Props> = ({ theme, children }) => {
 
   return (
     <main
-      className={clsx(
-        `theme-${theme}`,
-        "preview-frame",
-        `${scrollMode}-scroll`
-      )}
+      className={clsx("preview-frame", `${scrollMode}-scroll`)}
       ref={previewRef}
+      data-theme={theme}
     >
       {children}
     </main>

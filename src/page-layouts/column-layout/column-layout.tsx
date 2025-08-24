@@ -6,14 +6,14 @@ import { useSetCSSProperty } from "@/shared/hooks/useSetCSSProperty";
 import { hasOverrideProp } from "@/utils/style-overriding";
 
 interface Props {
-  variant?: "left-sidebar" | "right-sidebar";
+  arrangement: "left-sidebar" | "right-sidebar";
   children?: React.ReactNode;
   justifyItems?: JustifyItems;
   alignItems?: AlignItems;
 }
 
 export const ColumnLayout: React.FC<Props> = ({
-  variant = "left-sidebar",
+  arrangement,
   children,
   justifyItems,
   alignItems,
@@ -35,11 +35,11 @@ export const ColumnLayout: React.FC<Props> = ({
       ref={componentRef}
       className={clsx(
         styles["column-layout"],
-        variant && `variant ${styles[variant]}`,
         hasOverrideProp<Props>({
           justifyItems,
           alignItems,
         }) && "override",
+        arrangement && `${styles[arrangement]}`,
         justifyItems && "justify-items",
         alignItems && "align-items"
       )}

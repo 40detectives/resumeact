@@ -1,20 +1,16 @@
 .column-layout {
   display: grid;
-  column-gap: 2ch;
+  grid-auto-flow: dense;
+  column-gap: 3ch;
   align-items: center; /* ? ---> maybe not needed anymore? */
 }
 
-:global(.variant) {
-  &.left-sidebar {
-    grid-template-columns: [sidebar] 1fr [main] 2fr;
-    grid-auto-flow: dense;
-  }
+/* TODO: try setting three columns here, and classes with span for children */
 
-  &.right-sidebar {
-    grid-template-columns: [main] 2fr [sidebar] 1fr;
-  }
+.left-sidebar {
+  grid-template-columns: [sidebar] 1fr [main] 2fr;
 }
 
-:global(.override) {
-
+.right-sidebar {
+  grid-template-columns: [main] 2fr [sidebar] 1fr;
 }

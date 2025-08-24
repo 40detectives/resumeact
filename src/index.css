@@ -49,21 +49,21 @@ img {
 
 .override {
   &:where(.justify-items) {
-    &.sidebar-column > * {
+    &.col-sidebar > * {
       justify-self: var(--justify-value);
     }
 
-    &.main-column > * {
+    &.col-main > * {
       justify-self: var(--justify-value);
     }
   }
 
   &:where(.align-items) {
-    &.sidebar-column > * {
+    &.col-sidebar > * {
       align-self: var(--align-value);
     }
 
-    &.main-column > * {
+    &.col-main > * {
       align-self: var(--align-value);
     }
   }
@@ -85,20 +85,20 @@ img {
   }
 }
 
-:where(.sidebar-column > *) {
+:where(.col-sidebar > *) {
   grid-column: sidebar;
 }
 
-:where(.main-column > *) {
+:where(.col-main > *) {
   grid-column: main;
 }
 
-.full-row {
+.col-span-full {
   grid-column: 1/-1;
   grid-auto-flow: column;
 }
 
-.one-column {
+.col-span-1 {
   /* to be determined */
 }
 

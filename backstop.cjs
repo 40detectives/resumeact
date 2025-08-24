@@ -18,7 +18,7 @@ module.exports = {
   scenarios: [
     {
       label: "Resumeact Homepage - solo Preview",
-      url: "localhost:3715",
+      url: "https://localhost:3715",
       referenceUrl: "",
       readyEvent: "",
       readySelector: "",

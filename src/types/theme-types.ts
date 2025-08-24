@@ -14,7 +14,7 @@ interface Customizable<TVariant extends string = string> {
 
 export type { Customizable, Themeable, ThemeNames };
 
-export type ColumnLayoutItem = "full-row" | "one-column";
+export type ColumnSpan = "col-span-full" | "col-span-1";
 
 export type CSSInheritanceValue =
   | "inherit"
@@ -53,7 +53,12 @@ export type AlignItems =
   | "stretch"
   | CSSInheritanceValue;
 
-type StandardPropKeys = "data" | "children" | "variant" | "type";
+type StandardPropKeys =
+  | "data"
+  | "children"
+  | "variant"
+  | "arrangement"
+  | "slot";
 
 export type OverridePropKeys<T> = Exclude<keyof T, StandardPropKeys>;
 

@@ -1,10 +1,6 @@
 import { useSetCSSProperty } from "@/shared/hooks/useSetCSSProperty";
 import type { NameSection } from "@/types/resume-types";
-import type {
-  AlignItems,
-  ColumnLayoutItem,
-  JustifyItems,
-} from "@/types/theme-types";
+import type { AlignItems, ColumnSpan, JustifyItems } from "@/types/theme-types";
 import { hasOverrideProp } from "@/utils/style-overriding";
 import { clsx } from "clsx";
 import { useRef } from "react";
@@ -15,7 +11,7 @@ interface Props {
   highlight?: "none" | "firstname" | "lastname" | "all";
   accentColor?: "string";
   bold?: "none" | "firstname" | "lastname" | "all";
-  layout?: ColumnLayoutItem;
+  columnSpan?: ColumnSpan;
   justifySelf?: JustifyItems;
   alignSelf?: AlignItems;
 }
@@ -25,7 +21,7 @@ export const Name: React.FC<Props> = ({
   bold,
   highlight,
   accentColor,
-  layout,
+  columnSpan,
   justifySelf,
   alignSelf,
 }) => {
@@ -51,11 +47,11 @@ export const Name: React.FC<Props> = ({
             highlight,
             accentColor,
             bold,
-            layout,
+            columnSpan,
             justifySelf,
             alignSelf,
           }) && "override",
-          layout,
+          columnSpan,
           justifySelf && "justify-self",
           alignSelf && "align-self"
         )}
