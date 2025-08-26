@@ -1,5 +1,10 @@
 [data-theme="monotone"] {
   /* global stuff for the theme if needed goes here */
+  --palette-0: #0b0c0c; /* this if for the font */
+  --palette-1: #444544; /* main highlight */
+  --palette-2: #727977; /* second higlight */
+  --palette-3: #969998; /* --> maybe #8a937f;? */
+  --palette-4: #a7b0ae;
 }
 
 [data-theme="minimalist"] {
