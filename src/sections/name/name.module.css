@@ -9,15 +9,15 @@
   content: " ";
 }
 
-:global([data-theme="monotone"]) {
-  :where(.firstname),
-  :where(.lastname) {
-    display: block;
-  }
+:where(.firstname),
+:where(.lastname) {
+  display: block;
+}
 
+:global([data-theme="monotone"]) {
   .lastname {
-    color: var(--palette-2);
-    font-weight: 500;
+    color: var(--palette-1);
+    font-weight: 700;
   }
 }
 
@@ -27,8 +27,8 @@
       font-weight: 200;
     }
 
-    .weight-500 {
-      font-weight: 500;
+    .weight-700 {
+      font-weight: 700;
     }
 
     .highlight {

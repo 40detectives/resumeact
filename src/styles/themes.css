@@ -1,10 +1,10 @@
 [data-theme="monotone"] {
   /* global stuff for the theme if needed goes here */
   --palette-0: #0b0c0c; /* this if for the font */
-  --palette-1: #444544; /* main highlight */
-  --palette-2: #727977; /* second higlight */
-  --palette-3: #969998; /* --> maybe #8a937f;? */
-  --palette-4: #a7b0ae;
+  --palette-4: #444544;
+  --palette-3: #727977; /* ? --> maybe #8a937f? */
+  --palette-2: #969998; /* second higlight */
+  --palette-1: #a7b0ae; /* main highlight */
 }
 
 [data-theme="minimalist"] {

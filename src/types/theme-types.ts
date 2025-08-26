@@ -3,7 +3,7 @@ type ThemeNames = "monotone" | "minimalist" | "sharp";
 interface Themeable<TTheme extends string = string> {
   theme: TTheme;
   //setTheme: (theme: TTheme) => void;
-  palette: [string, string, string, string]; // CSS colors
+  palette?: [string, string, string, string]; // CSS colors
   //setPalette: (palette: string[]) => void;
 }
 

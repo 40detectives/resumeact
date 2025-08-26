@@ -8,7 +8,7 @@ import App from "./App.tsx";
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <IconContext.Provider value={{ className: "react-icon" }}>
-      <ThemeProvider theme={"monotone"} palette={["#8a937f", "", "", ""]}>
+      <ThemeProvider theme={"monotone"}>
         <App />
       </ThemeProvider>
     </IconContext.Provider>
