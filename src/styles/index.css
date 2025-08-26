@@ -1,3 +1,11 @@
+@layer reset, theme, component, variant, override;
+
+/* CSS Reset */
+@import url("@/styles/reset.css") layer(reset);
+
+/* Global stuff set by a theme (like default colors, custom properties defaults, …) */
+@import url("@/styles/themes.css") layer(themes); /* Global stuff associated with a theme */
+
 :root {
   /* A4 is 210mm x 297mm, aprox ratio: 1:1.4142 */
   --a4-width: 210mm;
@@ -11,31 +19,23 @@
   --palette-2: #bbb;
   --palette-3: #eaeaea;
 
-  box-sizing: border-box;
   color: #213547;
   font-weight: 400;
   /* font-size: 1rem; */
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
 }
 
 :where(h1) {
-  margin-block: 0.67em;
+  /* margin-block: 0.67em; */
   font-size: 2em;
 }
 
+/* TODO check how good is this flow layout for me here */
+.flow > * + * {
+  margin-block-start: var(--flow-space, 1em);
+}
+
 body {
-  margin: 0;
   background-color: #777;
 }
 
@@ -256,7 +256,7 @@ img {
 
   .display-page {
     /* width: 210mm
-    height: 297mm  */
+    height: 297mm */
     margin: 0;
     padding: 15mm;
     border: none;
