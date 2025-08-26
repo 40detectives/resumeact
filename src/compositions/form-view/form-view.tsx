@@ -20,7 +20,7 @@ export const FormView: React.FC<Props> = () => {
 
   return (
     <aside className={`editor-frame ${styles["aside-ui"]}`}>
-      <div className="center">
+      <div className="flex-column-center">
         Scroll mode is {scrollMode}
         <button onClick={handleScrollModeOnClick}>
           {scrollMode === "vertical" ? (

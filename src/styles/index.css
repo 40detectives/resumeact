@@ -1,52 +1,23 @@
-@layer reset, theme, component, variant, override;
+@layer reset, base, skeleton, theme, component, variant, override;
 
 /* CSS Reset */
 @import url("@/styles/reset.css") layer(reset);
 
+/* Base stuff for the app */
+@import url("@/styles/base.css") layer(base);
+
+/* Skeleton: editor and preview frames, document emulation, @media screen and print, etc */
+@import url("@/styles/skeleton.css") layer(skeleton);
+
 /* Global stuff set by a theme (like default colors, custom properties defaults, …) */
 @import url("@/styles/themes.css") layer(themes); /* Global stuff associated with a theme */
-
-:root {
-  /* A4 is 210mm x 297mm, aprox ratio: 1:1.4142 */
-  --a4-width: 210mm;
-  --a4-height: 297mm;
-  --a4-ratio: calc(297 / 210);
-  --page-scale: 1;
-  --scaled-height: auto;
-  --scaled-width: auto;
-  --palette-0: #202020;
-  --palette-1: #8a937f;
-  --palette-2: #bbb;
-  --palette-3: #eaeaea;
-
-  color: #213547;
-  font-weight: 400;
-  /* font-size: 1rem; */
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-}
-
-:where(h1) {
-  /* margin-block: 0.67em; */
-  font-size: 2em;
-}
 
 /* TODO check how good is this flow layout for me here */
 .flow > * + * {
   margin-block-start: var(--flow-space, 1em);
 }
 
-body {
-  background-color: #777;
-}
-
-img {
-  vertical-align: middle;
-  max-width: 100%;
-  height: auto;
-  font-style: italic;
-  shape-margin: 1rem;
-}
-
+/* TODO #ABCDEFG big refactor for columns starts here */
 .override {
   &:where(.justify-items) {
     &.col-sidebar > * {
@@ -102,166 +73,14 @@ img {
   /* to be determined */
 }
 
-.react-icon {
+/* TODO #ABCDEFG big refactor for columns ends here */
+
+.react-icon { /* ?: will we be using react icons going forward? */
   vertical-align: middle;
 
   &.bolder-path {
     path {
       stroke-width: 2rem;
     }
-  }
-}
-
-.injected-icon svg {
-  display: block;
-  margin-inline: auto;
-  /* vertical-align: middle; */
-}
-
-.center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: auto;
-  margin-block: auto;
-}
-
-.viewport-frame {
-  display: flex;
-  flex-flow: row nowrap;
-  height: 100svh;
-}
-
-.editor-frame {
-  flex-grow: 1;
-  overflow: auto;
-  min-width: max(min(30%, 450px), 300px);
-  max-width: 33%;
-  resize: horizontal; /* if I set flex-basis, it will prevent resize from working */
-}
-
-.preview-frame {
-  display: flex;
-  align-items: center;
-  overflow: auto;
-  border: 3px solid cyan;
-}
-
-.scaled-size-holder {
-  width: var(--scaled-width);
-  height: var(--scaled-height);
-}
-
-.paged-view {
-  display: flex;
-  /* flex-flow: column nowrap; */
-  gap: min(6vw, 60px);
-  width: fit-content;
-  height: fit-content;
-  transform: scale(var(--page-scale));
-  /* transform-origin: top center; */
-  transform-origin: top left;
-}
-
-.display-page {
-  width: var(--a4-width);
-  height: var(--a4-height);
-  aspect-ratio: 1 / var(--a4-ratio);
-  padding: 15mm;
-  border: 1px solid #888;
-  background-color: #fff;
-  box-shadow: 8px 8px 6px 0 rgb(0 0 0 / 35%);
-}
-
-.vertical-scroll {
-  flex: 2 1 70%;
-  flex-flow: column nowrap;
-}
-
-.vertical-scroll > .scaled-size-holder {
-  margin-block: min(3vw, 30px);
-}
-
-.vertical-scroll .paged-view {
-  flex-flow: column nowrap;
-}
-
-.horizontal-scroll {
-  flex-flow: row nowrap;
-  justify-content: start;
-}
-
-.horizontal-scroll > .scaled-size-holder {
-  margin-inline: 3vw;
-}
-
-.horizontal-scroll > .paged-view {
-  flex-flow: row nowrap;
-}
-
-@media only screen and (width <= 600px) {
-  .viewport-frame {
-    flex-flow: column nowrap;
-  }
-
-  .editor-frame {
-    flex: 1 1 50%;
-    order: 1;
-    min-width: fit-content;
-    max-width: min-content;
-    resize: none;
-  }
-
-  .preview-frame {
-    flex: 1 1 50%;
-    order: 0;
-  }
-}
-
-@media print {
-  @page {
-    margin: 0;
-    /* size: A4 portrait; */
-    size: auto; /* bc: chrome PDF preview button ignores A4 and defaults to US letter */
-  }
-
-  body {
-    /* width: 210mm; /* ---> seems to fix safari printing */
-    margin: 0;
-    padding: 0;
-  }
-
-  .editor-frame {
-    display: none;
-  }
-
-  .preview-frame {
-    /* display: contents; */
-    overflow: initial;
-    width: initial;
-    border: none;
-  }
-
-  .scaled-size-holder {
-    --scaled-height: auto;
-    --scaled-width: auto;
-  }
-
-  .paged-view {
-    --page-scale: 1;
-
-    gap: 0;
-    transform: none;
-  }
-
-  .display-page {
-    /* width: 210mm
-    height: 297mm */
-    margin: 0;
-    padding: 15mm;
-    border: none;
-    border: 3px solid red;
-    box-shadow: none;
-    page-break-after: always;
   }
 }
