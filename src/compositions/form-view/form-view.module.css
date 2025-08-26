@@ -1,9 +1,0 @@
-.aside-ui {
-  border: 3px solid orangered;
-  background-color: beige;
-}
-
-:global(.editor-frame).aside-ui {
-  /* min-width: max(10%, 200px); */
-  display: none;
-}

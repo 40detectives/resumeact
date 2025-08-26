@@ -1,4 +1,4 @@
-import { FormView } from "@/compositions/form-view/form-view";
+import { EditorFrame } from "@/compositions/editor-frame/editor-frame";
 import { PagedView } from "@/compositions/paged-view/paged-view";
 import { PreviewFrame } from "@/compositions/preview-frame/preview-frame";
 import { ViewportProvider } from "@/contexts/viewport-provider";
@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="viewport-frame">
       <ViewportProvider>
-        <FormView />
+        <EditorFrame />
         <PreviewFrame theme={theme}>
           <PagedView>
             <div className="display-page">

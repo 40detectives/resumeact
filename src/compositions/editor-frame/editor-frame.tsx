@@ -1,11 +1,11 @@
 import { useViewContext } from "@/contexts/viewport-context";
-import styles from "./form-view.module.css";
 import type { ChangeEvent } from "react";
-import { CgScrollV, CgScrollH } from "react-icons/cg";
+import { CgScrollH, CgScrollV } from "react-icons/cg";
+import styles from "./editor-frame.module.css";
 
 interface Props {}
 
-export const FormView: React.FC<Props> = () => {
+export const EditorFrame: React.FC<Props> = () => {
   const { minScale, scale, setScale, maxScale, scrollMode, setScrollMode } =
     useViewContext();
 
