@@ -1,3 +1,13 @@
-.column {
-  display: contents;
+@layer component {
+  .column {
+    display: contents;
+  }
+
+  .col-sidebar > * {
+    grid-column: sidebar;
+  }
+
+  .col-main > * {
+    grid-column: main;
+  }
 }
