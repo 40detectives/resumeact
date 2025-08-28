@@ -35,8 +35,7 @@ export const Column: React.FC<Props> = ({
       ref={componentRef}
       className={clsx(
         styles["column"],
-        `col-${slot}`,
-        hasOverrideProp<Props>({ justifyItems, alignItems }) && "override",
+        styles[`col-${slot}`],
         justifyItems && "justify-items",
         alignItems && "align-items"
       )}
