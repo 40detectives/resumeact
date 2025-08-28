@@ -35,11 +35,7 @@ export const ColumnLayout: React.FC<Props> = ({
       ref={componentRef}
       className={clsx(
         styles["column-layout"],
-        hasOverrideProp<Props>({
-          justifyItems,
-          alignItems,
-        }) && "override",
-        arrangement && `${styles[arrangement]}`,
+        `${styles[arrangement]}`,
         justifyItems && "justify-items",
         alignItems && "align-items"
       )}
