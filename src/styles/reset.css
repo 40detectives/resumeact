@@ -5,22 +5,20 @@
   }
 }
 
-:root {
+html {
   box-sizing: border-box; /* 2. Use a more-intuitive box-sizing model */
   font-synthesis: none;
+
+  /* 3. Prevent font size inflation (iOS) */
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
 
   /* text-rendering: optimizeLegibility; --> weird behaviors on chrome with some font-weights */
 }
 
 *, *::before, *::after {
   box-sizing: inherit;  /* 2.1 make box-sizing inheritable */
-}
-
-html {
-  /* 3. Prevent font size inflation (iOS) */
-  -moz-text-size-adjust: none;
-  -webkit-text-size-adjust: none;
-  text-size-adjust: none;
 }
 
 /* 4. Remove default margin */
