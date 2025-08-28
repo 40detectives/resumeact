@@ -1,16 +1,20 @@
-.column-layout {
-  display: grid;
-  grid-auto-flow: dense;
-  column-gap: 3ch;
-  align-items: center; /* ? ---> maybe not needed anymore? */
+@layer component {
+  .column-layout {
+    display: grid;
+    grid-auto-flow: dense;
+    column-gap: 3ch;
+    align-items: center; /* ? ---> maybe not needed anymore? */
+  }
 }
 
-/* TODO: try setting three columns here, and classes with span for children */
+@layer variant {
+  /* TODO: try setting three columns here, and classes with span for children */
 
-.left-sidebar {
-  grid-template-columns: [sidebar] 1fr [main] 2fr;
-}
+  .left-sidebar {
+    grid-template-columns: [sidebar] 1fr [main] 2fr;
+  }
 
-.right-sidebar {
-  grid-template-columns: [main] 2fr [sidebar] 1fr;
+  .right-sidebar {
+    grid-template-columns: [main] 2fr [sidebar] 1fr;
+  }
 }
