@@ -10,13 +10,15 @@
 @import url("@/styles/skeleton.css") layer(skeleton);
 
 /* Global stuff set by a theme (like default colors, custom properties defaults, …) */
-@import url("@/styles/themes.css") layer(themes); /* Global stuff associated with a theme */
+@import url("@/styles/themes.css") layer(theme); /* Global stuff associated with a theme */
 
 /* * Component styles: declared in each css module if needed */
 
 /* * Variant styles: declared in each css module */
 
-/* * Override styles declared in each css module if needed */
+/* * Override styles */
+/* (mostly declared in each css module, but also some globals here) */
+
 
 /* TODO check how good is this flow layout for me here */
 .flow > * + * {

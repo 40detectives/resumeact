@@ -1,5 +1,5 @@
 html {
-  font-weight: 400;
+  font-weight: 400; /* 400 == normal; 700 == bold */
   /* font-size: 1rem; */
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
