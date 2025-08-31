@@ -1,5 +1,5 @@
 @layer component {
-  .column-layout {
+  :global(.column-layout) {
     display: grid;
     grid-auto-flow: dense;
     column-gap: 3ch;

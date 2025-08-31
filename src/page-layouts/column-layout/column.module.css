@@ -1,5 +1,5 @@
 @layer component {
-  .column {
+  :global(.column-ghost) {
     display: contents;
   }
 

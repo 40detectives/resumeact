@@ -1,9 +1,8 @@
-import { clsx } from "clsx";
-import styles from "./column.module.css";
-import type { AlignItems, JustifyItems } from "@/types/theme-types";
-import { useRef } from "react";
 import { useSetCSSProperty } from "@/shared/hooks/useSetCSSProperty";
-import { hasOverrideProp } from "@/utils/style-overriding";
+import type { AlignItems, JustifyItems } from "@/types/theme-types";
+import { clsx } from "clsx";
+import { useRef } from "react";
+import styles from "./column.module.css";
 
 interface Props {
   children?: React.ReactNode;
@@ -21,12 +20,12 @@ export const Column: React.FC<Props> = ({
   const componentRef = useRef<HTMLDivElement>(null);
 
   useSetCSSProperty<HTMLDivElement>(componentRef, {
-    property: "--justify-value",
+    property: "--justify-self",
     value: justifyItems,
   });
 
   useSetCSSProperty<HTMLDivElement>(componentRef, {
-    property: "--align-value",
+    property: "--align-self",
     value: alignItems,
   });
 
@@ -34,7 +33,7 @@ export const Column: React.FC<Props> = ({
     <section
       ref={componentRef}
       className={clsx(
-        styles["column"],
+        "column-ghost",
         styles[`col-${slot}`],
         justifyItems && "justify-items",
         alignItems && "align-items"

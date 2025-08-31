@@ -1,9 +1,8 @@
+import { useSetCSSProperty } from "@/shared/hooks/useSetCSSProperty";
 import type { AlignItems, JustifyItems } from "@/types/theme-types";
-import styles from "./column-layout.module.css";
 import { clsx } from "clsx";
 import { useRef } from "react";
-import { useSetCSSProperty } from "@/shared/hooks/useSetCSSProperty";
-import { hasOverrideProp } from "@/utils/style-overriding";
+import styles from "./column-layout.module.css";
 
 interface Props {
   arrangement: "left-sidebar" | "right-sidebar";
@@ -21,12 +20,12 @@ export const ColumnLayout: React.FC<Props> = ({
   const componentRef = useRef<HTMLDivElement>(null);
 
   useSetCSSProperty<HTMLHeadingElement>(componentRef, {
-    property: "--justify-value",
+    property: "--justify-items",
     value: justifyItems,
   });
 
   useSetCSSProperty<HTMLHeadingElement>(componentRef, {
-    property: "--align-value",
+    property: "--align-items",
     value: alignItems,
   });
 
@@ -34,7 +33,7 @@ export const ColumnLayout: React.FC<Props> = ({
     <div
       ref={componentRef}
       className={clsx(
-        styles["column-layout"],
+        "column-layout",
         `${styles[arrangement]}`,
         justifyItems && "justify-items",
         alignItems && "align-items"
