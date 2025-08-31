@@ -17,7 +17,7 @@
       "always",
       {
         "except": ["first-nested"],
-        "ignore": ["stylelint-commands"],
+        "ignore": ["stylelint-commands", "after-comment"],
         "ignoreComments": ["/^[a-z-]*:.*;$/"]
       }
     ],
