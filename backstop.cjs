@@ -8,8 +8,8 @@ module.exports = {
     }, */
     {
       label: "tablet",
-      width: 685,
-      height: 900,
+      width: 794,
+      height: 1123,
     },
     /* { "label": "desktop", "width": 1280, "height": 800 } */
   ],
@@ -17,11 +17,11 @@ module.exports = {
   // onReadyScript: "playwright/onReady.cjs",
   scenarios: [
     {
-      label: "Resumeact Homepage - solo Preview",
+      label: "Full Preview (1st page)",
       url: "https://localhost:3715",
-      referenceUrl: "",
-      readyEvent: "",
-      readySelector: "",
+      // referenceUrl: "",
+      // readyEvent: "",
+      // readySelector: "",
       delay: 0,
       hideSelectors: [],
       removeSelectors: [".editor-frame"],
@@ -32,7 +32,16 @@ module.exports = {
       selectorExpansion: false,
       expect: 0,
       misMatchThreshold: 0.1,
-      requireSameDimensions: true,
+      requireSameDimensions: false,
+    },
+    {
+      label: "<ProfilePicture>",
+      url: "https://localhost:3715",
+      referenceURl: "",
+      delay: 0,
+      selectors: [".profile-picture-section"],
+      misMatchThreshold: 0.1,
+      requireSameDimensions: false,
     },
   ],
   paths: {

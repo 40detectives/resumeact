@@ -17,18 +17,20 @@ export const ProfilePicture: React.FC<Props> = ({
   picSize = 135,
 }) => {
   return (
-    <img
-      style={
-        {
-          "--pic-size": picSize,
-          "--bg-accent-color": bgAccentColor,
-        } as React.CSSProperties
-      }
-      className={clsx(styles[`variant-${variant}`], styles["profile-pic"])}
-      src={picture}
-      alt={`${firstName}'s profile pic`}
-      width={picSize}
-      height={picSize}
-    />
+    <figure className="profile-picture-section">
+      <img
+        style={
+          {
+            "--pic-size": picSize,
+            "--bg-accent-color": bgAccentColor,
+          } as React.CSSProperties
+        }
+        className={clsx(styles[`variant-${variant}`], styles["profile-pic"])}
+        src={picture}
+        alt={`${firstName}'s profile pic`}
+        width={picSize}
+        height={picSize}
+      />
+    </figure>
   );
 };
