@@ -1,7 +1,7 @@
+import { useThemeContext } from "@/contexts/theme-context";
 import { useSetCSSProperty } from "@/shared/hooks/useSetCSSProperty";
 import type { NameSection } from "@/types/resume-types";
 import type { AlignItems, ColumnSpan, JustifyItems } from "@/types/theme-types";
-import { hasOverrideProp } from "@/utils/style-overriding";
 import { clsx } from "clsx";
 import { useRef } from "react";
 import styles from "./name.module.css";
@@ -12,8 +12,10 @@ interface Props {
   accentColor?: "string";
   bold?: "none" | "firstname" | "lastname" | "all";
   columnSpan?: ColumnSpan;
-  justifySelf?: JustifyItems;
-  alignSelf?: AlignItems;
+  justifyItems?: JustifyItems; // places the contents relative to the h1
+  alignItems?: AlignItems; // places the contents relative to the h1
+  justifySelf?: JustifyItems; // places the h1 relative to its parent
+  alignSelf?: AlignItems; // places the h1 relative to its parent
 }
 
 export const Name: React.FC<Props> = ({
@@ -22,18 +24,31 @@ export const Name: React.FC<Props> = ({
   highlight,
   accentColor,
   columnSpan,
+  justifyItems,
+  alignItems,
   justifySelf,
   alignSelf,
 }) => {
+  const { theme } = useThemeContext();
   const h1Ref = useRef<HTMLHeadingElement>(null);
 
   useSetCSSProperty<HTMLHeadingElement>(h1Ref, {
-    property: "--justify-value",
+    property: "--justify-items",
+    value: justifyItems,
+  });
+
+  useSetCSSProperty<HTMLHeadingElement>(h1Ref, {
+    property: "--align-items",
+    value: alignItems,
+  });
+
+  useSetCSSProperty<HTMLHeadingElement>(h1Ref, {
+    property: "--justify-self",
     value: justifySelf,
   });
 
   useSetCSSProperty<HTMLHeadingElement>(h1Ref, {
-    property: "--align-value",
+    property: "--align-self",
     value: alignSelf,
   });
 
@@ -42,15 +57,11 @@ export const Name: React.FC<Props> = ({
       <h1
         ref={h1Ref}
         className={clsx(
-          [styles.fullname],
-          hasOverrideProp<Props>({
-            highlight,
-            accentColor,
-            bold,
-            columnSpan,
-            justifySelf,
-            alignSelf,
-          }) && "override",
+          "name-section",
+          styles["fullname"],
+          styles[theme],
+          justifyItems && "justify-items",
+          alignItems && "align-items",
           columnSpan,
           justifySelf && "justify-self",
           alignSelf && "align-self"
@@ -58,10 +69,12 @@ export const Name: React.FC<Props> = ({
       >
         <span
           className={clsx({
-            [styles.firstname]: styles.firstname,
-            [styles["weight-200"]]: ["lastname", "none"].includes(bold ?? ""),
+            [styles["firstname"]]: styles["firstname"],
+            [styles["weight-300"]]: ["lastname", "none"].includes(bold ?? ""),
             [styles["weight-500"]]: ["firstname", "all"].includes(bold ?? ""),
-            [styles.highlight]: ["firstname", "all"].includes(highlight ?? ""),
+            [styles["highlight"]]: ["firstname", "all"].includes(
+              highlight ?? ""
+            ),
             [styles["no-highlight"]]: ["lastname", "none"].includes(
               highlight ?? ""
             ),
@@ -71,10 +84,12 @@ export const Name: React.FC<Props> = ({
         </span>
         <span
           className={clsx({
-            [styles.lastname]: styles.lastname,
-            [styles["weight-200"]]: ["firstname", "none"].includes(bold ?? ""),
+            [styles["lastname"]]: styles["lastname"],
+            [styles["weight-300"]]: ["firstname", "none"].includes(bold ?? ""),
             [styles["weight-500"]]: ["lastname", "all"].includes(bold ?? ""),
-            [styles.highlight]: ["lastname", "all"].includes(highlight ?? ""),
+            [styles["highlight"]]: ["lastname", "all"].includes(
+              highlight ?? ""
+            ),
             [styles["no-highlight"]]: ["firstname", "none"].includes(
               highlight ?? ""
             ),

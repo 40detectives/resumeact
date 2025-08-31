@@ -1,56 +1,40 @@
-.fullname {
-  width: max-content;
-  color: var(--palette-0);
-  font-weight: 200;
-  line-height: 1.1;
+@layer component {
+  .fullname {
+    display: grid;
+    column-gap: 0.5rem;
+    margin-block: 2rem; /* ??? */
+    color: inherit;
+    font-weight: 400;
+  }
 }
 
-.firstname::after {
-  content: " ";
+@layer variant {
+  :where(.monotone) {
+    .firstname {
+      font-weight: 300;
+    }
+
+    .lastname {
+      color: var(--palette-1);
+      font-weight: 700; /* 700 == bold */
+    }
+  }
 }
 
-:where(.firstname),
-:where(.lastname) {
-  display: block;
-}
+@layer override {
+  .weight-300 {
+    font-weight: 300;
+  }
 
-:global([data-theme="monotone"]) {
-  .lastname {
-    color: var(--palette-1);
+  .weight-700 {
     font-weight: 700;
   }
-}
 
-:global(.override) {
-  &.fullname {
-    .weight-200 {
-      font-weight: 200;
-    }
-
-    .weight-700 {
-      font-weight: 700;
-    }
-
-    .highlight {
-      color: var(--palette-1);
-    }
-
-    .no-highlight {
-      color: unset;
-    }
+  .highlight {
+    color: var(--palette-1);
   }
 
-  &:global(.col-span-1) {
-    :where(.firstname),
-    :where(.lastname) {
-      display: block;
-    }
-  }
-
-  &:global(.col-span-full) {
-    :where(.firstname),
-    :where(.lastname) {
-      display: unset;
-    }
+  .no-highlight {
+    color: revert;
   }
 }

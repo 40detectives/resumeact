@@ -19,61 +19,42 @@
 /* * Override styles */
 /* (mostly declared in each css module, but also some globals here) */
 
-
-/* TODO check how good is this flow layout for me here */
-.flow > * + * {
-  margin-block-start: var(--flow-space, 1em);
-}
-
-/* TODO #ABCDEFG big refactor for columns starts here */
-.override {
-  &:where(.justify-items) {
-    &.col-sidebar > * {
-      justify-self: var(--justify-value);
-    }
-
-    &.col-main > * {
-      justify-self: var(--justify-value);
-    }
+@layer override {
+  .col-span-full {
+    grid-column: 1/-1;
+    grid-auto-flow: column;
   }
 
-  &:where(.align-items) {
-    &.col-sidebar > * {
-      align-self: var(--align-value);
-    }
-
-    &.col-main > * {
-      align-self: var(--align-value);
-    }
+  .col-span-1 {
+    /* to be determined */
   }
 
-  &.align-items {
-    align-items: var(--align-value);
+  .align-items {
+    align-items: var(--align-items);
   }
 
-  &.justify-items {
-    justify-items: var(--justify-value);
+  .justify-items {
+    justify-items: var(--justify-items);
   }
 
-  &.align-self {
-    align-self: var(--align-value);
+  :where(.column-ghost.align-items) > * {
+    /* using --align-self value so it can be overwritten by each element inside the column */
+    align-self: var(--align-self);
   }
 
-  &.justify-self {
-    justify-self: var(--justify-value);
+  :where(.column-ghost.justify-items) > * {
+    /* using --justify-self value so it can be overwritten by each element inside the column */
+    justify-self: var(--justify-self);
+  }
+
+  .align-self {
+    align-self: var(--align-self);
+  }
+
+  .justify-self {
+    justify-self: var(--justify-self);
   }
 }
-
-.col-span-full {
-  grid-column: 1/-1;
-  grid-auto-flow: column;
-}
-
-.col-span-1 {
-  /* to be determined */
-}
-
-/* TODO #ABCDEFG big refactor for columns ends here */
 
 .react-icon { /* ?: will we be using react icons going forward? */
   vertical-align: middle;
@@ -83,4 +64,9 @@
       stroke-width: 2rem;
     }
   }
+}
+
+/* TODO check how good is this flow layout for me here */
+.flow > * + * {
+  margin-block-start: var(--flow-space, 1em);
 }
