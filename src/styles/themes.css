@@ -1,10 +1,23 @@
 [data-theme="monotone"] {
   /* global stuff for the theme if needed goes here */
-  --palette-0: #0b0c0c; /* this if for the font */
+  --palette-0: #161717; /* this if for the font */
   --palette-4: #444544;
   --palette-3: #727977; /* ? --> maybe #8a937f? */
   --palette-2: #969998; /* second higlight */
   --palette-1: #a7b0ae; /* main highlight */
+
+  color: var(--palette-0, #161717);
+}
+
+[data-theme="purpletone"] {
+  /* global stuff for the theme if needed goes here */
+  --palette-0: #0c0910; /* this if for the font */
+  --palette-4: #453750;
+  --palette-3: #73648a; /* ? --> maybe #8a937f? */
+  --palette-2: #9882ac; /* second higlight */
+  --palette-1: #a898c3; /* main highlight */
+
+  color: var(--palette-0, #0c0910);
 }
 
 [data-theme="minimalist"] {
