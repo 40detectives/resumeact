@@ -170,3 +170,31 @@ export const useSetCSSCustomProperties = <T extends HTMLElement>(
     (prevDeps, nextDeps) => deepEqual(prevDeps, nextDeps)
   );
 };
+
+export const useSetCSSPropertyInStylesheet = (
+  selector: string,
+  { property, value, priority }: CSSRuleObject,
+  layerName?: string
+): void => {
+  useEffect(() => {
+    const indexCss = Array.from(document.styleSheets).find(
+      (sheet) => sheet.title === "index"
+    );
+
+    if (!indexCss) return;
+
+    const layer0 = Array.from(
+      indexCss.cssRules as unknown as CSSLayerBlockRule[]
+    ).find((layer) => layer.name === layerName);
+    if (!layer0) return;
+
+    const final = layer0 ?? indexCss;
+
+    const rule = Array.from(final.cssRules as unknown as CSSStyleRule[]).find(
+      (rule) => rule.selectorText === selector
+    );
+
+    rule?.style.setProperty(property, value ?? "", priority ?? "");
+    console.log(rule);
+  }, [layerName, selector, property, value, priority]);
+};
