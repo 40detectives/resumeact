@@ -35,6 +35,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1 {
+  font-size: 1.8125rem; /* equal firefox h1 UA styles to chrome */
+}
+
 /* Set shorter line heights on headings and interactive elements */
 h1, h2 {
   line-height: 1.2;
