@@ -17,7 +17,7 @@
 /* * Variant styles: declared in each css module */
 
 /* * Override styles */
-/* (mostly declared in each css module, but also some globals here) */
+/* (mostly declared in each css module, but also some utility classes as globals here) */
 
 @layer override {
   .col-span-full {

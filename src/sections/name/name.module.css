@@ -2,8 +2,7 @@
   .fullname {
     display: grid;
     column-gap: 0.5rem;
-    margin-block: 2rem; /* ??? */
-    color: inherit;
+    color: var(--palette-0);
     font-weight: 400;
   }
 }

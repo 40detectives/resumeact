@@ -1,7 +1,12 @@
 import { useThemeContext } from "@/contexts/theme-context";
 import { useSetCSSProperty } from "@/shared/hooks/useSetCSSProperty";
 import type { NameSection } from "@/types/resume-types";
-import type { AlignItems, ColumnSpan, JustifyItems } from "@/types/theme-types";
+import type {
+  AlignItems,
+  ColumnSpan,
+  JustifyItems,
+  Themeable,
+} from "@/types/theme-types";
 import { clsx } from "clsx";
 import { useRef } from "react";
 import styles from "./name.module.css";
@@ -9,7 +14,7 @@ import styles from "./name.module.css";
 interface Props {
   data: NameSection;
   highlight?: "none" | "firstname" | "lastname" | "all";
-  accentColor?: "string";
+  palette?: Themeable["palette"];
   bold?: "none" | "firstname" | "lastname" | "all";
   columnSpan?: ColumnSpan;
   justifyItems?: JustifyItems; // places the contents relative to the h1
@@ -22,7 +27,7 @@ export const Name: React.FC<Props> = ({
   data,
   bold,
   highlight,
-  accentColor,
+  palette,
   columnSpan,
   justifyItems,
   alignItems,
@@ -50,6 +55,26 @@ export const Name: React.FC<Props> = ({
   useSetCSSProperty<HTMLHeadingElement>(h1Ref, {
     property: "--align-self",
     value: alignSelf,
+  });
+
+  useSetCSSProperty<HTMLHeadingElement>(h1Ref, {
+    property: "--palette-0",
+    value: palette?.[0],
+  });
+
+  useSetCSSProperty<HTMLHeadingElement>(h1Ref, {
+    property: "--palette-1",
+    value: palette?.[1],
+  });
+
+  useSetCSSProperty<HTMLHeadingElement>(h1Ref, {
+    property: "--palette-2",
+    value: palette?.[2],
+  });
+
+  useSetCSSProperty<HTMLHeadingElement>(h1Ref, {
+    property: "--palette-3",
+    value: palette?.[3],
   });
 
   return (
