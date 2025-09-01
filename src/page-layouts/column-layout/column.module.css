@@ -1,13 +1,17 @@
 @layer component {
   :global(.column-ghost) {
     display: contents;
+
+    > * {
+      grid-column: var(--column-name);
+    }
   }
 
-  .col-sidebar > * {
-    grid-column: sidebar;
+  .col-sidebar {
+    --column-name: sidebar;
   }
 
-  .col-main > * {
-    grid-column: main;
+  .col-main {
+    --column-name: main;
   }
 }

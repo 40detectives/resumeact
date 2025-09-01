@@ -26,7 +26,7 @@
   }
 
   .col-span-1 {
-    /* to be determined */
+    grid-column: var(--column-name) / span 1;
   }
 
   .align-items {
