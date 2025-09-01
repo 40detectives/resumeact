@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 
 interface CSSRuleObject {
   property: string;
@@ -27,4 +27,3 @@ export const useSetCSSPropertySync = <T extends HTMLElement>(
 
   return elemRef;
 };
-
