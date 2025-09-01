@@ -19,21 +19,3 @@
     }
   }
 }
-
-@layer override {
-  .weight-300 {
-    font-weight: 300;
-  }
-
-  .weight-700 {
-    font-weight: 700;
-  }
-
-  .highlight {
-    color: var(--palette-1);
-  }
-
-  .no-highlight {
-    color: revert;
-  }
-}

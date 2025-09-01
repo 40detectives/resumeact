@@ -94,30 +94,22 @@ export const Name: React.FC<Props> = ({
       >
         <span
           className={clsx({
-            [styles["firstname"]]: styles["firstname"],
-            [styles["weight-300"]]: ["lastname", "none"].includes(bold ?? ""),
-            [styles["weight-500"]]: ["firstname", "all"].includes(bold ?? ""),
-            [styles["highlight"]]: ["firstname", "all"].includes(
-              highlight ?? ""
-            ),
-            [styles["no-highlight"]]: ["lastname", "none"].includes(
-              highlight ?? ""
-            ),
+            firstname: "firstname",
+            ["weight-300"]: ["lastname", "none"].includes(bold ?? ""),
+            ["weight-700"]: ["firstname", "all"].includes(bold ?? ""),
+            ["highlight"]: ["firstname", "all"].includes(highlight ?? ""),
+            ["no-highlight"]: ["lastname", "none"].includes(highlight ?? ""),
           })}
         >
           {data.firstName}
         </span>
         <span
           className={clsx({
-            [styles["lastname"]]: styles["lastname"],
-            [styles["weight-300"]]: ["firstname", "none"].includes(bold ?? ""),
-            [styles["weight-500"]]: ["lastname", "all"].includes(bold ?? ""),
-            [styles["highlight"]]: ["lastname", "all"].includes(
-              highlight ?? ""
-            ),
-            [styles["no-highlight"]]: ["firstname", "none"].includes(
-              highlight ?? ""
-            ),
+            lastname: "lastname",
+            ["weight-300"]: ["firstname", "none"].includes(bold ?? ""),
+            ["weight-700"]: ["lastname", "all"].includes(bold ?? ""),
+            ["highlight"]: ["lastname", "all"].includes(highlight ?? ""),
+            ["no-highlight"]: ["firstname", "none"].includes(highlight ?? ""),
           })}
         >
           {data.lastName}

@@ -54,6 +54,22 @@
   .justify-self {
     justify-self: var(--justify-self);
   }
+
+  .weight-300 {
+    font-weight: 300;
+  }
+
+  .weight-700 {
+    font-weight: 700;
+  }
+
+  .highlight {
+    color: var(--palette-1);
+  }
+
+  .no-highlight {
+    color: revert;
+  }
 }
 
 .react-icon { /* ?: will we be using react icons going forward? */
