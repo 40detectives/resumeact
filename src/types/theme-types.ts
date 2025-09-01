@@ -3,7 +3,7 @@ type ThemeNames = "monotone" | "minimalist" | "sharp";
 interface Themeable<TTheme extends string = string> {
   theme: TTheme;
   //setTheme: (theme: TTheme) => void;
-  palette?: [string, string, string, string]; // CSS colors
+  palette?: [string, string, string?, string?]; // CSS colors
   //setPalette: (palette: string[]) => void;
 }
 
@@ -12,7 +12,7 @@ interface Customizable<TVariant extends string = string> {
   palette: [string, string, string, string]; // CSS colors
 }
 
-export type { Customizable, Themeable, ThemeNames };
+export type { Themeable, ThemeNames };
 
 export type ColumnSpan = "col-span-full" | "col-span-1";
 
