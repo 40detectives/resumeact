@@ -5,7 +5,7 @@ import type {
   JustifyItems,
 } from "@/types/styleprops-types";
 import { deepEqual } from "fast-equals";
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import {
   useCustomCompareEffect,
   useCustomCompareMemo,
@@ -53,21 +53,6 @@ export const useSetCSSProperty = <T extends HTMLElement>(
     elemRef.current?.style.setProperty(property, value ?? "", priority ?? "");
   }, [elemRef, property, value, priority]);
 };
-
-// !!!!
-// ! delte sync version as there is no need no layout measurement
-// !!!!
-export const useSetCSSPropertySync = <T extends HTMLElement>(
-  elemRef: React.RefObject<T | null>,
-  { property, value, priority }: CSSRuleObject
-): React.RefObject<T | null> => {
-  useLayoutEffect(() => {
-    elemRef.current?.style.setProperty(property, value ?? "", priority ?? "");
-  }, [elemRef, property, value, priority]);
-
-  return elemRef;
-};
-// !!!!
 
 export const useSetCSSPropertiesNeedsMemo = <T extends HTMLElement>(
   elemRef: React.RefObject<T | null>,
