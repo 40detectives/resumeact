@@ -54,17 +54,6 @@ export const useSetCSSProperty = <T extends HTMLElement>(
   }, [elemRef, property, value, priority]);
 };
 
-export const useSetCSSPropertiesNeedsMemo = <T extends HTMLElement>(
-  elemRef: React.RefObject<T | null>,
-  rules: CSSRuleObject[]
-): void => {
-  useEffect(() => {
-    for (const { property, value, priority } of rules) {
-      elemRef.current?.style.setProperty(property, value ?? "", priority ?? "");
-    }
-  }, [elemRef, rules]);
-};
-
 export const useSetCSSPropertiesAll = <T extends HTMLElement>(
   elemRef: React.RefObject<T | null>,
   rules: CSSRuleObject[]
