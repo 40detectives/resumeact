@@ -12,14 +12,15 @@ import {
 } from "use-custom-compare";
 
 interface CSSRuleTypes {
-  "--align-items": AlignItems | CSSInheritance | undefined | null;
-  "--justify-items": JustifyItems | CSSInheritance | undefined | null;
-  "--align-self": AlignItems | CSSInheritance | undefined | null;
-  "--justify-self": JustifyItems | CSSInheritance | undefined | null;
-  "--palette-0": string | undefined | null;
-  "--palette-1": string | undefined | null;
-  "--palette-2": string | undefined | null;
-  "--palette-3": string | undefined | null;
+  "--align-items": AlignItems | CSSInheritance;
+  "--justify-items": JustifyItems | CSSInheritance;
+  "--align-self": AlignItems | CSSInheritance;
+  "--justify-self": JustifyItems | CSSInheritance;
+  "--palette-0": string;
+  "--palette-1": string;
+  "--palette-2": string;
+  "--palette-3": string;
+  "--pic-size": number;
 }
 
 type CSSRuleProperty = keyof CSSRuleTypes;
