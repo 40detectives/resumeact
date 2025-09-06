@@ -1,6 +1,6 @@
 import { clsx } from "clsx";
 import styles from "./profile-pic.module.css";
-import { useSetCSSCustomProperties } from "@/shared/hooks/styleprops";
+import { useCSSCustomProperties } from "@/shared/hooks/styleprops";
 import { useRef } from "react";
 import type { ThemePalette } from "@/types/theme-types";
 
@@ -21,7 +21,7 @@ export const ProfilePicture: React.FC<Props> = ({
 }) => {
   const figureRef = useRef(null);
 
-  useSetCSSCustomProperties(figureRef, {
+  useCSSCustomProperties(figureRef, {
     "--pic-size": picSize,
     "--palette-0": palette?.[0],
     "--palette-1": palette?.[1],

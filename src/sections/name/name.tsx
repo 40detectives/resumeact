@@ -1,5 +1,5 @@
 import { useThemeContext } from "@/contexts/theme-context";
-import { useSetCSSCustomProperties } from "@/shared/hooks/styleprops";
+import { useCSSCustomProperties } from "@/shared/hooks/styleprops";
 import type { NameSection } from "@/types/resume-types";
 import type { ThemePalette } from "@/types/theme-types";
 import type {
@@ -38,7 +38,7 @@ export const Name: React.FC<Props> = ({
   const { theme } = useThemeContext();
   const h1Ref = useRef<HTMLHeadingElement>(null);
 
-  useSetCSSCustomProperties(h1Ref, {
+  useCSSCustomProperties(h1Ref, {
     "--justify-self": justifySelf,
     "--align-self": alignSelf,
     "--justify-items": justifyItems,

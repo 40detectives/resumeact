@@ -153,7 +153,7 @@ export function useStylePropDiff(currentProps: StyleProps) {
   return usePropDiff(currentProps);
 }
 
-export const useSetCSSCustomProperties = <T extends HTMLElement>(
+export const useCSSCustomProperties = <T extends HTMLElement>(
   elemRef: React.RefObject<T | null>,
   props: StyleProps
 ): void => {

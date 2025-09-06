@@ -1,5 +1,5 @@
 import {
-  useSetCSSCustomProperties,
+  useCSSCustomProperties,
   useSetCSSProperty,
 } from "@/shared/hooks/styleprops";
 import type {
@@ -26,7 +26,7 @@ export const ColumnLayout: React.FC<Props> = ({
 }) => {
   const componentRef = useRef<HTMLDivElement>(null);
 
-  useSetCSSCustomProperties(componentRef, {
+  useCSSCustomProperties(componentRef, {
     "--justify-items": justifyItems,
     "--align-items": alignItems,
   });
