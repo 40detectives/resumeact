@@ -29,13 +29,6 @@ type StyleProps = {
   [K in keyof CSSRuleTypes]?: CSSRuleTypes[K] | null;
 };
 
-/* const tmp = {
-  "--align-items": "center",
-  "--justify-items": "end",
-  "--oopaaa": "center",
-} satisfies StyleProps;
-const obj: StyleProps = tmp; */
-
 type CSSRuleValue = string | null | undefined;
 type CSSRulePriority = "important" | "" | null;
 

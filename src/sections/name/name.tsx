@@ -1,5 +1,5 @@
 import { useThemeContext } from "@/contexts/theme-context";
-import { useSetCSSProperty } from "@/shared/hooks/useSetCSSProperty";
+import { useSetCSSCustomProperties } from "@/shared/hooks/styleprops";
 import type { NameSection } from "@/types/resume-types";
 import type { ThemePalette } from "@/types/theme-types";
 import type {
@@ -38,44 +38,15 @@ export const Name: React.FC<Props> = ({
   const { theme } = useThemeContext();
   const h1Ref = useRef<HTMLHeadingElement>(null);
 
-  useSetCSSProperty<HTMLHeadingElement>(h1Ref, {
-    property: "--justify-items",
-    value: justifyItems,
-  });
-
-  useSetCSSProperty<HTMLHeadingElement>(h1Ref, {
-    property: "--align-items",
-    value: alignItems,
-  });
-
-  useSetCSSProperty<HTMLHeadingElement>(h1Ref, {
-    property: "--justify-self",
-    value: justifySelf,
-  });
-
-  useSetCSSProperty<HTMLHeadingElement>(h1Ref, {
-    property: "--align-self",
-    value: alignSelf,
-  });
-
-  useSetCSSProperty<HTMLHeadingElement>(h1Ref, {
-    property: "--palette-0",
-    value: palette?.[0],
-  });
-
-  useSetCSSProperty<HTMLHeadingElement>(h1Ref, {
-    property: "--palette-1",
-    value: palette?.[1],
-  });
-
-  useSetCSSProperty<HTMLHeadingElement>(h1Ref, {
-    property: "--palette-2",
-    value: palette?.[2],
-  });
-
-  useSetCSSProperty<HTMLHeadingElement>(h1Ref, {
-    property: "--palette-3",
-    value: palette?.[3],
+  useSetCSSCustomProperties(h1Ref, {
+    "--justify-self": justifySelf,
+    "--align-self": alignSelf,
+    "--justify-items": justifyItems,
+    "--align-items": alignItems,
+    "--palette-0": palette?.[0],
+    "--palette-1": palette?.[1],
+    "--palette-2": palette?.[2],
+    "--palette-3": palette?.[3],
   });
 
   return (

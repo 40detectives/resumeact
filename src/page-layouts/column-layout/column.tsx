@@ -1,4 +1,7 @@
-import { useSetCSSProperty } from "@/shared/hooks/useSetCSSProperty";
+import {
+  useSetCSSCustomProperties,
+  useSetCSSProperty,
+} from "@/shared/hooks/styleprops";
 import type {
   AlignItems,
   CSSInheritance,
@@ -23,14 +26,9 @@ export const Column: React.FC<Props> = ({
 }) => {
   const componentRef = useRef<HTMLDivElement>(null);
 
-  useSetCSSProperty<HTMLDivElement>(componentRef, {
-    property: "--justify-self",
-    value: justifyItems,
-  });
-
-  useSetCSSProperty<HTMLDivElement>(componentRef, {
-    property: "--align-self",
-    value: alignItems,
+  useSetCSSCustomProperties(componentRef, {
+    "--justify-self": justifyItems,
+    "--align-self": alignItems,
   });
 
   return (
