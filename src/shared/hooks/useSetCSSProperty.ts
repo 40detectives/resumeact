@@ -54,25 +54,6 @@ export const useSetCSSProperty = <T extends HTMLElement>(
   }, [elemRef, property, value, priority]);
 };
 
-export const useSetCSSPropertiesAll = <T extends HTMLElement>(
-  elemRef: React.RefObject<T | null>,
-  rules: CSSRuleObject[]
-): void => {
-  useCustomCompareEffect(
-    () => {
-      for (const { property, value, priority } of rules) {
-        elemRef.current?.style.setProperty(
-          property,
-          value ?? "",
-          priority ?? ""
-        );
-      }
-    },
-    [elemRef, rules],
-    (prevDeps, nextDeps) => deepEqual(prevDeps, nextDeps)
-  );
-};
-
 export const useSetCPGridPlaceItems = <T extends HTMLElement>(
   elemRef: React.RefObject<T | null>,
   {
