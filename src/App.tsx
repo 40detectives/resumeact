@@ -35,7 +35,7 @@ function App() {
                   <ProfilePicture
                     firstName={resumeDataES.name.firstName}
                     picture={resumeDataES.picture}
-                    bgAccentColor="#8a937f"
+                    palette={["", "#c52a22"]}
                     variant="squared-shadow-bg"
                   />
                   <Contact
