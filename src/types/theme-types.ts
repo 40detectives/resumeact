@@ -1,9 +1,11 @@
 type ThemeNames = "monotone" | "minimalist" | "sharp";
 
+export type ThemePalette = [string, string, string?, string?];
+
 interface Themeable<TTheme extends string = string> {
   theme: TTheme;
   //setTheme: (theme: TTheme) => void;
-  palette?: [string, string, string?, string?]; // CSS colors
+  palette?: ThemePalette; // CSS colors
   //setPalette: (palette: string[]) => void;
 }
 

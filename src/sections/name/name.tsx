@@ -5,7 +5,7 @@ import type {
   AlignItems,
   ColumnSpan,
   JustifyItems,
-  Themeable,
+  ThemePalette,
 } from "@/types/theme-types";
 import { clsx } from "clsx";
 import { useRef } from "react";
@@ -14,7 +14,7 @@ import styles from "./name.module.css";
 interface Props {
   data: NameSection;
   highlight?: "none" | "firstname" | "lastname" | "all";
-  palette?: Themeable["palette"];
+  palette?: ThemePalette;
   bold?: "none" | "firstname" | "lastname" | "all";
   columnSpan?: ColumnSpan;
   justifyItems?: JustifyItems; // places the contents relative to the h1
