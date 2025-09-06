@@ -1,5 +1,9 @@
 import { useSetCSSProperty } from "@/shared/hooks/useSetCSSProperty";
-import type { AlignItems, JustifyItems } from "@/types/theme-types";
+import type {
+  AlignItems,
+  CSSInheritance,
+  JustifyItems,
+} from "@/types/styleprops-types";
 import { clsx } from "clsx";
 import { useRef } from "react";
 import styles from "./column-layout.module.css";
@@ -7,8 +11,8 @@ import styles from "./column-layout.module.css";
 interface Props {
   arrangement: "left-sidebar" | "right-sidebar";
   children?: React.ReactNode;
-  justifyItems?: JustifyItems;
-  alignItems?: AlignItems;
+  justifyItems?: JustifyItems | CSSInheritance;
+  alignItems?: AlignItems | CSSInheritance;
 }
 
 export const ColumnLayout: React.FC<Props> = ({

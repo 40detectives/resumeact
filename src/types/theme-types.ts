@@ -16,45 +16,6 @@ interface Customizable<TVariant extends string = string> {
 
 export type { Themeable, ThemeNames };
 
-export type ColumnSpan = "col-span-full" | "col-span-1";
-
-export type CSSInheritanceValue =
-  | "inherit"
-  | "initial"
-  | "revert"
-  | "revert-layer"
-  | "unset";
-
-export type JustifyItems =
-  | "anchor-center"
-  | "baseline"
-  | "center"
-  | "end"
-  | "flex-end"
-  | "flex-start"
-  | "left"
-  | "normal"
-  | "right"
-  | "self-end"
-  | "self-start"
-  | "start"
-  | "stretch"
-  | CSSInheritanceValue;
-
-export type AlignItems =
-  | "anchor-center"
-  | "baseline"
-  | "center"
-  | "end"
-  | "flex-end"
-  | "flex-start"
-  | "normal"
-  | "self-end"
-  | "self-start"
-  | "start"
-  | "stretch"
-  | CSSInheritanceValue;
-
 type StandardPropKeys =
   | "data"
   | "children"

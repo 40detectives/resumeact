@@ -1,12 +1,13 @@
 import { useThemeContext } from "@/contexts/theme-context";
 import { useSetCSSProperty } from "@/shared/hooks/useSetCSSProperty";
 import type { NameSection } from "@/types/resume-types";
+import type { ThemePalette } from "@/types/theme-types";
 import type {
   AlignItems,
   ColumnSpan,
+  CSSInheritance,
   JustifyItems,
-  ThemePalette,
-} from "@/types/theme-types";
+} from "@/types/styleprops-types";
 import { clsx } from "clsx";
 import { useRef } from "react";
 import styles from "./name.module.css";
@@ -17,10 +18,10 @@ interface Props {
   palette?: ThemePalette;
   bold?: "none" | "firstname" | "lastname" | "all";
   columnSpan?: ColumnSpan;
-  justifyItems?: JustifyItems; // places the contents relative to the h1
-  alignItems?: AlignItems; // places the contents relative to the h1
-  justifySelf?: JustifyItems; // places the h1 relative to its parent
-  alignSelf?: AlignItems; // places the h1 relative to its parent
+  justifyItems?: JustifyItems | CSSInheritance; // places the contents relative to the h1
+  alignItems?: AlignItems | CSSInheritance; // places the contents relative to the h1
+  justifySelf?: JustifyItems | CSSInheritance; // places the h1 relative to its parent
+  alignSelf?: AlignItems | CSSInheritance; // places the h1 relative to its parent
 }
 
 export const Name: React.FC<Props> = ({

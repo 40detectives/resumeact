@@ -6,7 +6,7 @@ import type { ContactSection } from "@/types/resume-types";
 import { clsx } from "clsx";
 import { ReactSVG } from "react-svg";
 import styles from "./contact.module.css";
-import type { ColumnSpan } from "@/types/theme-types";
+import type { ColumnSpan } from "@/types/styleprops-types";
 import { hasOverrideProp } from "@/utils/style-overriding";
 
 interface Props {
