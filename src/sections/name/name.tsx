@@ -55,8 +55,8 @@ export const Name: React.FC<Props> = ({
         ref={h1Ref}
         className={clsx(
           "name-section",
-          styles["fullname"],
           styles[theme],
+          styles["fullname"],
           justifyItems && "justify-items",
           alignItems && "align-items",
           columnSpan,

@@ -1,4 +1,9 @@
-type ThemeNames = "monotone" | "minimalist" | "sharp";
+type ThemeNames =
+  | "monotone"
+  | "purpletone"
+  | "minimalist"
+  | "sharp"
+  | "moderna";
 
 export type ThemePalette = [string, string, string?, string?];
 

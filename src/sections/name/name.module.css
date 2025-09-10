@@ -8,7 +8,7 @@
 }
 
 @layer variant {
-  :where(.monotone) {
+  :where(.monotone, .purpletone) {
     .firstname {
       font-weight: 300;
     }

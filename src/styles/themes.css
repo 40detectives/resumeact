@@ -21,3 +21,10 @@
 [data-theme="minimalist"] {
   /* global stuff for the theme if needed goes here */
 }
+
+[data-theme="moderna"] {
+  --palette-0: #26000bff;
+  --palette-1: #aa0134ff;
+  --palette-2: #9b002fff;
+  --palette-3: #63001eff;
+}
