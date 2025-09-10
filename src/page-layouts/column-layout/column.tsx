@@ -1,7 +1,4 @@
-import {
-  useCSSCustomProperties,
-  useSetCSSProperty,
-} from "@/shared/hooks/styleprops";
+import { useCSSCustomProperties } from "@/shared/hooks/styleprops";
 import type {
   AlignItems,
   CSSInheritance,
