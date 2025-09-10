@@ -27,7 +27,10 @@
     ],
     "property-no-unknown": [
       true,
-      { "ignoreSelectors": ["/^:import\\(/", "/^:export/"] }
+      {
+        "ignoreSelectors": ["/^:import\\(/", "/^:export/"],
+        "ignoreProperties": ["composes"]
+      }
     ],
     "property-no-vendor-prefix": [
       true,
