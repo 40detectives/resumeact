@@ -1,34 +1,50 @@
-/* :import("@/compositions/paged-view/paged-view.module.css") {
-  parent: parent-context;
-} */
+@layer component {
+  .profile-pic {
+    --v-box-shadow-margin: 0;
 
-/*
-.pic-frame-wrapper {
-  position: relative;
-  z-index: 0;
+    object-fit: cover;
+    width: calc(1px * var(--pic-size, 135));
+    margin: var(--v-box-shadow-margin);
+    /* aspect-ratio: auto; */
+    background-color: var(--palette-2, #aaa); /* Fallback color while loading */
+  }
 }
 
-.pic-frame-deco {
-  position: absolute;
-  inset: -7px 7px;
-  z-index: -1;
-  width: calc(var(--pic-size, 135) * 1px);
-  height: calc(var(--pic-size, 135) * 1px);
-  border-radius: 0 8% 0 0;
-  background-color: var(--palette-1, #8a937f);
+@layer variant {
+  .monotone, .purpletone {
+    --v-box-shadow-margin: 7px 7px 0 0;
+
+    box-shadow: 7px -7px 0 0 var(--palette-1, #8a937f);
+  }
+
+  .moderna {
+    --v-box-shadow-margin: 7px 7px 0 0;
+
+    border-radius: 8% 0 8% 8%;
+    box-shadow: 7px -7px 0 0 var(--palette-1, #8a937f);
+  }
+
+  .speech-bubble-right {
+    --v-box-shadow-margin: 13px 13px 7px 7px;
+
+    border-radius: 50% 50% 0;
+    box-shadow:
+      0 0 0 5px var(--palette-1, #fff),
+      5px -5px 4px 6px var(--palette-3);
+  }
+
+  .speech-bubble-left {
+    --v-box-shadow-margin: 13px 7px 7px 13px;
+
+    border-radius: 50% 50% 50% 0;
+    box-shadow:
+      0 0 0 5px var(--palette-1, #fff),
+      -5px -5px 4px 6px var(--palette-3);
+  }
 }
 
-.parent .pic-frame-deco {
-  border-radius: 0 10%;
-} */
-
-/* variants */
-
-.profile-pic {
-  width: calc(1px * var(--pic-size));
-}
-
-.variant-squared-shadow-bg {
-  box-shadow: 7px -7px 0 0 var(--palette-1, #8a937f);
-  /* border-radius: 8% 0 8% 8%; */
+@layer override {
+  .gray-scale { /* TODO: use this in component */
+    filter: grayscale(1) contrast(0.8) brightness(1.2);
+  }
 }

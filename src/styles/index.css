@@ -70,6 +70,12 @@
   .no-highlight {
     color: revert;
   }
+
+  .rounded {
+    /* --border-radius: 50%; */
+
+    border-radius: var(--border-radius);
+  }
 }
 
 .react-icon { /* ?: will we be using react icons going forward? */
