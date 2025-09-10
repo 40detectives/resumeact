@@ -21,6 +21,7 @@ interface CSSRuleTypes {
   "--palette-2": string;
   "--palette-3": string;
   "--pic-size": number;
+  "--border-radius": string;
 }
 
 type CSSRuleProperty = keyof CSSRuleTypes;

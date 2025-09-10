@@ -26,7 +26,7 @@ function App() {
                 <Column slot="sidebar">
                   <Name
                     data={resumeDataES.name}
-                    palette={["gray", "rebeccapurple"]}
+                    // palette={["gray", "rebeccapurple"]}
                     highlight="firstname"
                     justifySelf="start"
                     columnSpan="col-span-1"
@@ -35,8 +35,7 @@ function App() {
                   <ProfilePicture
                     firstName={resumeDataES.name.firstName}
                     picture={resumeDataES.picture}
-                    palette={["", "#c52a22"]}
-                    variant="squared-shadow-bg"
+                    justifySelf="center"
                   />
                   <Contact
                     data={resumeDataES.contact}
