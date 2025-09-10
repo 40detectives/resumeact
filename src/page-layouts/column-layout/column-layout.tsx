@@ -1,15 +1,18 @@
-import type { AlignItems, JustifyItems } from "@/types/theme-types";
-import styles from "./column-layout.module.css";
+import { useCSSCustomProperties } from "@/shared/hooks/styleprops";
+import type {
+  AlignItems,
+  CSSInheritance,
+  JustifyItems,
+} from "@/types/styleprops-types";
 import { clsx } from "clsx";
 import { useRef } from "react";
-import { useSetCSSProperty } from "@/shared/hooks/useSetCSSProperty";
-import { hasOverrideProp } from "@/utils/style-overriding";
+import styles from "./column-layout.module.css";
 
 interface Props {
   arrangement: "left-sidebar" | "right-sidebar";
   children?: React.ReactNode;
-  justifyItems?: JustifyItems;
-  alignItems?: AlignItems;
+  justifyItems?: JustifyItems | CSSInheritance;
+  alignItems?: AlignItems | CSSInheritance;
 }
 
 export const ColumnLayout: React.FC<Props> = ({
@@ -20,26 +23,17 @@ export const ColumnLayout: React.FC<Props> = ({
 }) => {
   const componentRef = useRef<HTMLDivElement>(null);
 
-  useSetCSSProperty<HTMLHeadingElement>(componentRef, {
-    property: "--justify-value",
-    value: justifyItems,
-  });
-
-  useSetCSSProperty<HTMLHeadingElement>(componentRef, {
-    property: "--align-value",
-    value: alignItems,
+  useCSSCustomProperties(componentRef, {
+    "--justify-items": justifyItems,
+    "--align-items": alignItems,
   });
 
   return (
     <div
       ref={componentRef}
       className={clsx(
-        styles["column-layout"],
-        hasOverrideProp<Props>({
-          justifyItems,
-          alignItems,
-        }) && "override",
-        arrangement && `${styles[arrangement]}`,
+        "column-layout",
+        `${styles[arrangement]}`,
         justifyItems && "justify-items",
         alignItems && "align-items"
       )}

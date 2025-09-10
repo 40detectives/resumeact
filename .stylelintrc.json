@@ -17,7 +17,7 @@
       "always",
       {
         "except": ["first-nested"],
-        "ignore": ["stylelint-commands"],
+        "ignore": ["stylelint-commands", "after-comment"],
         "ignoreComments": ["/^[a-z-]*:.*;$/"]
       }
     ],
@@ -27,7 +27,15 @@
     ],
     "property-no-unknown": [
       true,
-      { "ignoreSelectors": ["/^:import\\(/", "/^:export/"] }
-    ]
+      {
+        "ignoreSelectors": ["/^:import\\(/", "/^:export/"],
+        "ignoreProperties": ["composes"]
+      }
+    ],
+    "property-no-vendor-prefix": [
+      true,
+      { "ignoreProperties": ["text-size-adjust"] }
+    ],
+    "@stylistic/selector-list-comma-newline-after": null
   }
 }

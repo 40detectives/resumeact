@@ -1,0 +1,30 @@
+[data-theme="monotone"] {
+  /* global stuff for the theme if needed goes here */
+  --palette-0: #161717; /* this if for the font */
+  --palette-3: #444544; /* ? --> maybe #8a937f? */
+  --palette-2: #727977; /* second higlight */
+  --palette-1: #a7b0ae; /* main highlight */
+
+  color: var(--palette-0, #161717);
+}
+
+[data-theme="purpletone"] {
+  /* global stuff for the theme if needed goes here */
+  --palette-0: #0c0910; /* this if for the font */
+  --palette-3: #453750;
+  --palette-2: #73648a; /* second higlight */
+  --palette-1: #a898c3; /* main highlight */
+
+  color: var(--palette-0, #0c0910);
+}
+
+[data-theme="minimalist"] {
+  /* global stuff for the theme if needed goes here */
+}
+
+[data-theme="moderna"] {
+  --palette-0: #26000bff;
+  --palette-1: #aa0134ff;
+  --palette-2: #9b002fff;
+  --palette-3: #63001eff;
+}

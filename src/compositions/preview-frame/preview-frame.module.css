@@ -1,4 +1,6 @@
-.preview-frame {
-  border: 2px solid greenyellow;
-  background-color: yellowgreen;
+@layer component {
+  .main-ui {
+    border: 3px solid greenyellow;
+    /* background-color: yellowgreen; */
+  }
 }
