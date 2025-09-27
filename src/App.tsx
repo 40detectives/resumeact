@@ -56,11 +56,11 @@ function App() {
                   )}
                 </Column>
               </ColumnLayout>
-              <Contact
+              {/* <Contact
                 data={resumeDataES.contact}
                 iconStyle="pill"
                 columnSpan="col-span-full"
-              />
+              /> */}
             </div>
             <div className="display-page">
               <p>

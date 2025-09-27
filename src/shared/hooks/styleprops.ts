@@ -165,7 +165,7 @@ export const useCSSCustomProperties = <T extends HTMLElement>(
       for (const key of Object.keys(changes) as (keyof StyleProps)[]) {
         const [value, priority] = String(changes[key] ?? "").split("!");
         elemRef.current?.style.setProperty(key, value, priority);
-        console.log(`I'm updating ${key} with value ${value}`);
+        // console.log(`I'm updating ${key} with value ${value}`);
       }
     },
     [elemRef, changes],

@@ -6,20 +6,46 @@ import type { ContactSection } from "@/types/resume-types";
 import { clsx } from "clsx";
 import { ReactSVG } from "react-svg";
 import styles from "./contact.module.css";
-import type { ColumnSpan } from "@/types/styleprops-types";
-import { hasOverrideProp } from "@/utils/style-overriding";
+import type {
+  ColumnSpan,
+  CSSInheritance,
+  JustifyItems,
+} from "@/types/styleprops-types";
+import { useThemeContext } from "@/contexts/theme-context";
+import { useRef } from "react";
+import { useCSSCustomProperties } from "@/shared/hooks/styleprops";
+import type { ThemePalette } from "@/types/theme-types";
 
 interface Props {
   data: ContactSection;
   iconStyle?: "pill" | "outline";
   columnSpan?: ColumnSpan;
+  palette?: ThemePalette;
+
+  justifySelf?: JustifyItems | CSSInheritance;
+  justifyItems?: JustifyItems | CSSInheritance;
 }
 
 export const Contact: React.FC<Props> = ({
   data,
   iconStyle = "outline",
   columnSpan = "col-span-1",
+  justifySelf,
+  justifyItems,
+  palette,
 }) => {
+  const { theme } = useThemeContext();
+  const ulRef = useRef<HTMLUListElement>(null);
+
+  useCSSCustomProperties(ulRef, {
+    "--justify-self": justifySelf,
+    "--justify-items": justifyItems,
+    "--palette-0": palette?.[0],
+    "--palette-1": palette?.[1],
+    "--palette-2": palette?.[2],
+    "--palette-3": palette?.[3],
+  });
+
   const iconClassNames = clsx(
     "injected-icon",
     styles["icon"],
@@ -28,10 +54,13 @@ export const Contact: React.FC<Props> = ({
 
   return (
     <ul
+      ref={ulRef}
       className={clsx(
         styles["contact-section"],
-        hasOverrideProp<Props>({ columnSpan, iconStyle }) && "override",
-        columnSpan
+        styles[theme],
+        columnSpan,
+        justifyItems && "justify-items",
+        justifySelf && "justify-self"
       )}
     >
       <li className={styles["contact-method"]}>
