@@ -1,50 +1,56 @@
-.pill {
-  padding: 2px;
-  border-radius: 35%;
-  background-color: var(--palette-2);
-  color: white;
+@layer component {
+  .icon {}
 
-  svg {
-    width: 75%;
+  .data {
+    font-style: normal;
+    font-size: 0.8rem;
+  }
+
+  .pill {
+    padding: 2px;
+    border-radius: 35%;
+    background-color: var(--palette-2);
+    color: white;
+
+    svg {
+      width: 75%;
+    }
+  }
+
+  .outline {
+    color: var(--palette-2);
+  }
+
+  .contact-section { /* this is the <ul> elem */
+    --contact-method-gap: 0.45em;
+
+    display: grid;
+    align-items: center;
+    margin-block: 1rem;
+    padding-inline: 0;
+    list-style-type: none;
+  }
+
+  .contact-method { /* this is the <li> elem */
+    display: grid;
+    grid-template-columns: max-content auto;
+    column-gap: 0.25rem;
+    align-items: center;
   }
 }
 
-.outline {
-  color: var(--palette-2);
+@layer variant {
+  .monotone, .purpletone {}
 }
 
-.contact-section {
-  display: grid;
-  align-items: center;
-  margin-block: 1rem;
-  padding-inline: 0;
-  list-style-type: none;
-}
+@layer override {
+  .contact-section {
+    &:where(:global(.col-span-1)) {
+      row-gap: var(--contact-method-gap);
+    }
 
-:global(.col-span-1) {
-  &.contact-section {
-    row-gap: 0.45rem;
+    &:where(:global(.col-span-full)) {
+      column-gap: var(--contact-method-gap);
+    }
   }
-}
-
-:global(.col-span-full) {
-  &.contact-section {
-    column-gap: 0.4rem;
-  }
-}
-
-.contact-method { /* this is the <li> elem */
-  display: grid;
-  grid-template-columns: max-content auto;
-  column-gap: 0.25rem;
-  align-items: center;
-}
-
-.icon {
-
-}
-
-.data {
-  font-style: normal;
-  font-size: 0.8rem;
 }

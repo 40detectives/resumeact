@@ -1,56 +1,21 @@
-.fullname {
-  width: max-content;
-  color: var(--palette-0);
-  font-weight: 200;
-  line-height: 1.1;
-}
-
-.firstname::after {
-  content: " ";
-}
-
-:global([data-theme="monotone"]) {
-  :where(.firstname),
-  :where(.lastname) {
-    display: block;
-  }
-
-  .lastname {
-    color: var(--palette-2);
-    font-weight: 500;
+@layer component {
+  .fullname {
+    display: grid;
+    column-gap: 0.5rem;
+    color: var(--palette-0);
+    font-weight: 400;
   }
 }
 
-:global(.override) {
-  &.fullname {
-    .weight-200 {
-      font-weight: 200;
+@layer variant {
+  :where(.monotone, .purpletone) {
+    .firstname {
+      font-weight: 300;
     }
 
-    .weight-500 {
-      font-weight: 500;
-    }
-
-    .highlight {
+    .lastname {
       color: var(--palette-1);
-    }
-
-    .no-highlight {
-      color: unset;
-    }
-  }
-
-  &:global(.col-span-1) {
-    :where(.firstname),
-    :where(.lastname) {
-      display: block;
-    }
-  }
-
-  &:global(.col-span-full) {
-    :where(.firstname),
-    :where(.lastname) {
-      display: unset;
+      font-weight: 700; /* 700 == bold */
     }
   }
 }

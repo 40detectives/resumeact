@@ -1,9 +1,16 @@
-type ThemeNames = "monotone" | "minimalist" | "sharp";
+type ThemeNames =
+  | "monotone"
+  | "purpletone"
+  | "minimalist"
+  | "sharp"
+  | "moderna";
+
+export type ThemePalette = [string, string, string?, string?];
 
 interface Themeable<TTheme extends string = string> {
   theme: TTheme;
   //setTheme: (theme: TTheme) => void;
-  palette: [string, string, string, string]; // CSS colors
+  palette?: ThemePalette; // CSS colors
   //setPalette: (palette: string[]) => void;
 }
 
@@ -12,46 +19,7 @@ interface Customizable<TVariant extends string = string> {
   palette: [string, string, string, string]; // CSS colors
 }
 
-export type { Customizable, Themeable, ThemeNames };
-
-export type ColumnSpan = "col-span-full" | "col-span-1";
-
-export type CSSInheritanceValue =
-  | "inherit"
-  | "initial"
-  | "revert"
-  | "revert-layer"
-  | "unset";
-
-export type JustifyItems =
-  | "anchor-center"
-  | "baseline"
-  | "center"
-  | "end"
-  | "flex-end"
-  | "flex-start"
-  | "left"
-  | "normal"
-  | "right"
-  | "self-end"
-  | "self-start"
-  | "start"
-  | "stretch"
-  | CSSInheritanceValue;
-
-export type AlignItems =
-  | "anchor-center"
-  | "baseline"
-  | "center"
-  | "end"
-  | "flex-end"
-  | "flex-start"
-  | "normal"
-  | "self-end"
-  | "self-start"
-  | "start"
-  | "stretch"
-  | CSSInheritanceValue;
+export type { Themeable, ThemeNames };
 
 type StandardPropKeys =
   | "data"

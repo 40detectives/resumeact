@@ -4,6 +4,7 @@ import { calcScaleAndClamp } from "@/utils/math";
 import { debounce } from "@/utils/optimization";
 import { clsx } from "clsx";
 import { useCallback, useLayoutEffect, useRef } from "react";
+import styles from "./preview-frame.module.css";
 
 interface Props {
   theme: ThemeNames;
@@ -103,7 +104,11 @@ export const PreviewFrame: React.FC<Props> = ({ theme, children }) => {
 
   return (
     <main
-      className={clsx("preview-frame", `${scrollMode}-scroll`)}
+      className={clsx(
+        "preview-frame",
+        styles["main-ui"],
+        `${scrollMode}-scroll`
+      )}
       ref={previewRef}
       data-theme={theme}
     >

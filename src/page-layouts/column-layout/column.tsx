@@ -1,15 +1,18 @@
+import { useCSSCustomProperties } from "@/shared/hooks/styleprops";
+import type {
+  AlignItems,
+  CSSInheritance,
+  JustifyItems,
+} from "@/types/styleprops-types";
 import { clsx } from "clsx";
-import styles from "./column.module.css";
-import type { AlignItems, JustifyItems } from "@/types/theme-types";
 import { useRef } from "react";
-import { useSetCSSProperty } from "@/shared/hooks/useSetCSSProperty";
-import { hasOverrideProp } from "@/utils/style-overriding";
+import styles from "./column.module.css";
 
 interface Props {
   children?: React.ReactNode;
   slot: "sidebar" | "main";
-  justifyItems?: JustifyItems;
-  alignItems?: AlignItems;
+  justifyItems?: JustifyItems | CSSInheritance;
+  alignItems?: AlignItems | CSSInheritance;
 }
 
 export const Column: React.FC<Props> = ({
@@ -20,23 +23,17 @@ export const Column: React.FC<Props> = ({
 }) => {
   const componentRef = useRef<HTMLDivElement>(null);
 
-  useSetCSSProperty<HTMLDivElement>(componentRef, {
-    property: "--justify-value",
-    value: justifyItems,
-  });
-
-  useSetCSSProperty<HTMLDivElement>(componentRef, {
-    property: "--align-value",
-    value: alignItems,
+  useCSSCustomProperties(componentRef, {
+    "--justify-self": justifyItems,
+    "--align-self": alignItems,
   });
 
   return (
     <section
       ref={componentRef}
       className={clsx(
-        styles["column"],
-        `col-${slot}`,
-        hasOverrideProp<Props>({ justifyItems, alignItems }) && "override",
+        "column-ghost",
+        styles[`col-${slot}`],
         justifyItems && "justify-items",
         alignItems && "align-items"
       )}

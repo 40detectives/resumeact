@@ -82,6 +82,13 @@ export default tseslint.config(
         { allowConstantExport: true },
       ],
       "react/prop-types": "off",
+      "react-hooks/exhaustive-deps": [
+        "warn",
+        {
+          additionalHooks:
+            "(useCustomCompareEffect|useCustomCompareLayoutEffect|useCustomCompareMemo|useCustomCompareCallback)",
+        },
+      ],
     },
   },
   {

@@ -1,0 +1,8 @@
+@layer component {
+  .aside-ui {
+    /* min-width: max(10%, 200px); */
+    display: none;
+    border: 3px solid cyan;
+    background-color: aliceblue;
+  }
+}

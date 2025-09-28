@@ -1,0 +1,94 @@
+@layer reset, base, skeleton, theme, component, variant, override;
+
+/* CSS Reset */
+@import url("@/styles/reset.css") layer(reset);
+
+/* Base stuff for the app */
+@import url("@/styles/base.css") layer(base);
+
+/* Skeleton: editor and preview frames, document emulation, @media screen and print, etc */
+@import url("@/styles/skeleton.css") layer(skeleton);
+
+/* Global stuff set by a theme (like default colors, custom properties defaults, …) */
+@import url("@/styles/themes.css") layer(theme); /* Global stuff associated with a theme */
+
+/* * Component styles: declared in each css module if needed */
+
+/* * Variant styles: declared in each css module */
+
+/* * Override styles */
+/* (mostly declared in each css module, but also some utility classes as globals here) */
+
+@layer override {
+  .col-span-full {
+    grid-column: 1/-1;
+    grid-auto-flow: column;
+  }
+
+  .col-span-1 {
+    grid-column: var(--column-name) / span 1;
+  }
+
+  .align-items {
+    align-items: var(--align-items);
+  }
+
+  .justify-items {
+    justify-items: var(--justify-items);
+  }
+
+  :where(.column-ghost.align-items) > * {
+    /* using --align-self value so it can be overwritten by each element inside the column */
+    align-self: var(--align-self);
+  }
+
+  :where(.column-ghost.justify-items) > * {
+    /* using --justify-self value so it can be overwritten by each element inside the column */
+    justify-self: var(--justify-self);
+  }
+
+  .align-self {
+    align-self: var(--align-self);
+  }
+
+  .justify-self {
+    justify-self: var(--justify-self);
+  }
+
+  .weight-300 {
+    font-weight: 300;
+  }
+
+  .weight-700 {
+    font-weight: 700;
+  }
+
+  .highlight {
+    color: var(--palette-1);
+  }
+
+  .no-highlight {
+    color: revert;
+  }
+
+  .rounded {
+    /* --border-radius: 50%; */
+
+    border-radius: var(--border-radius);
+  }
+}
+
+.react-icon { /* ?: will we be using react icons going forward? */
+  vertical-align: middle;
+
+  &.bolder-path {
+    path {
+      stroke-width: 2rem;
+    }
+  }
+}
+
+/* TODO check how good is this flow layout for me here */
+.flow > * + * {
+  margin-block-start: var(--flow-space, 1em);
+}

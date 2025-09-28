@@ -5,7 +5,7 @@ import type { Themeable, ThemeNames } from "@/types/theme-types";
 interface Props {
   children?: React.ReactNode;
   theme: ThemeNames;
-  palette: Themeable["palette"];
+  palette?: Themeable["palette"];
 }
 
 export const ThemeProvider: React.FC<Props> = ({
